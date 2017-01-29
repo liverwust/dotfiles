@@ -14,6 +14,9 @@ set autoindent  " Copy indent from current line when starting a new line
 nnoremap <Leader>sv :source $MYVIMRC<cr>
 nnoremap <Leader>xw :%s/\s\+$//<cr>
 
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+execute pathogen#infect()
+
 syntax enable
 filetype plugin indent on
 colorscheme monokai
