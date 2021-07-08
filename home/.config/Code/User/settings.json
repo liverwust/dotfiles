@@ -6,7 +6,6 @@
     "workbench.startupEditor": "newUntitledFile",
     "window.restoreWindows": "none",
     "files.insertFinalNewline": true,
-    "powershell.powerShellExePath": "/usr/bin/pwsh",
     "vim.cmdLineInitialColon": true,
     "editor.tabSize": 8,
     "editor.insertSpaces": false,
@@ -70,5 +69,12 @@
     ],
     "editor.autoClosingQuotes": "never",
     "trailing-spaces.backgroundColor": "rgba(255,255,0,0.3)",
-    "extensions.ignoreRecommendations": true
+    "extensions.ignoreRecommendations": true,
+    "powershell.powerShellAdditionalExePaths": [
+        {
+            "versionName": "PowerShell 7.1.3",
+            "exePath": "/net2/lww/powershell/7/pwsh"
+        }
+    ],
+    "powershell.powerShellDefaultVersion": "PowerShell 7.1.3"
 }
