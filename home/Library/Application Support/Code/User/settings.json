@@ -1,3 +1,80 @@
 {
-    "workbench.colorTheme": "Default Light+"
+    "workbench.colorTheme": "One Monokai",
+    "files.autoSave": "onWindowChange",
+    "editor.dragAndDrop": false,
+    "editor.emptySelectionClipboard": false,
+    "workbench.startupEditor": "newUntitledFile",
+    "window.restoreWindows": "none",
+    "files.insertFinalNewline": true,
+    "vim.cmdLineInitialColon": true,
+    "editor.tabSize": 8,
+    "editor.insertSpaces": false,
+    "vim.handleKeys": {
+        "<C-b>": false,
+        "<C-d>": true,
+        "<C-k>": false,
+        "<C-o>": false,
+        "<C-s>": false
+    },
+    "vim.cursorStylePerMode": {
+        "insert": "line"
+    },
+    "[json]": {
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true
+    },
+    "[powershell]": {
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true
+    },
+    "[python]": {
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true
+    },
+    "editor.minimap.enabled": false,
+    "editor.acceptSuggestionOnEnter": "off",
+    "window.menuBarVisibility": "default",
+    "workbench.activityBar.visible": false,
+    "workbench.statusBar.visible": true,
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    "cSpell.enabledLanguageIds": [
+        "asciidoc",
+        "c",
+        "cpp",
+        "csharp",
+        "css",
+        "go",
+        "handlebars",
+        "html",
+        "jade",
+        "javascript",
+        "javascriptreact",
+        "json",
+        "latex",
+        "less",
+        "markdown",
+        "php",
+        "plaintext",
+        "pub",
+        "python",
+        "restructuredtext",
+        "rust",
+        "scss",
+        "text",
+        "typescript",
+        "typescriptreact",
+        "yaml",
+        "yml"
+    ],
+    "editor.autoClosingQuotes": "never",
+    "trailing-spaces.backgroundColor": "rgba(255,255,0,0.3)",
+    "extensions.ignoreRecommendations": true,
+    "powershell.powerShellAdditionalExePaths": [
+        {
+            "versionName": "PowerShell 7.1.3",
+            "exePath": "/net2/lww/powershell/7/pwsh"
+        }
+    ],
+    "powershell.powerShellDefaultVersion": "PowerShell 7.1.3"
 }
