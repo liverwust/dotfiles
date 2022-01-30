@@ -76,5 +76,8 @@
             "exePath": "/net2/lww/powershell/7/pwsh"
         }
     ],
-    "powershell.powerShellDefaultVersion": "PowerShell 7.1.3"
+    "powershell.powerShellDefaultVersion": "PowerShell 7.1.3",
+    "update.mode": "none",
+    "editor.autoClosingBrackets": "never",
+    "terminal.integrated.macOptionIsMeta": true
 }
