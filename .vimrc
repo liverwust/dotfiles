@@ -1,38 +1,64 @@
 " Louis Wust's vimrc
-" 2016-12-09
+" 2021-08-16
 
 set nocompatible
 
-set visualbell  " Use visual bell instead of beeping
-set showcmd     " Show (partial) command in status line
-set showmatch   " Show matching brackets
-set ignorecase  " Do case insensitive matching
-set smartcase   " Do smart case matching
-set incsearch   " Incremental search
-set shiftround  " Round indent to multiple of 'shiftwidth'
-set autoindent  " Copy indent from current line when starting a new line 
-nnoremap <Leader>sv :source $MYVIMRC<cr>
+" https://github.com/VundleVim/Vundle.vim
+filetype off                  " required
+set rtp+=~/.vim/bundle/Vundle.vim
+if has('nvim')
+  call vundle#begin()
+  Plugin 'VundleVim/Vundle.vim'
+  Plugin 'moll/vim-bbye'
+  Plugin 'PProvost/vim-ps1'
+  Plugin 'm-pilia/vim-mediawiki'
+  Plugin 'raghur/vim-ghost'
+  let g:ghost_darwin_app = 'iTerm2'
+  let g:ghost_autostart = 1
+  call vundle#end()            " required
+endif
+" All of your Plugins must be added before the following line
+filetype plugin indent on
+
+set visualbell   " Use visual bell instead of beeping
+set showcmd      " Show (partial) command in status line
+set showmatch    " Show matching brackets
+set ignorecase   " Do case insensitive matching
+set smartcase    " Do smart case matching
+set incsearch    " Incremental search
+set shiftround   " Round indent to multiple of 'shiftwidth'
+set autoindent   " Copy indent from current line when starting a new line 
+set ruler        " Show current file position in lower-right
 nnoremap <Leader>xw :%s/\s\+$//<cr>
 
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect()
+" Use this at home (Vim 8). Comment it out for work (Vim 7).
+" packadd! matchit " makes the % command work better
 
 syntax enable
-filetype plugin indent on
-colorscheme monokai
 
 " GVim settings
 if has('gui_running')
   if has('win32')
-    set guifont=Anonymous_Pro:h16
+    " Windows setup
+    set guifont=Anonymous_Pro:h14
+    set lines=32
+  elseif hostname() == "ldt-4054622.gfdl.noaa.gov"
+    " Work & 4K monitor
+    set guifont=DejaVu\ Sans\ Mono\ 18
+    set lines=50
   else
-    set guifont=DejaVu\ Sans\ Mono\ 16
+    " Linux (or other) setup
+    set guifont=DejaVu\ Sans\ Mono\ 13
+    set lines=32
   endif
   set guioptions-=T
   set guioptions-=m
   set guioptions-=r
   set guioptions-=R
   set guioptions-=L
+  colorscheme monokai
+else
+  colorscheme xoria256
 endif
 
 " straight from Vim's map.txt
@@ -40,21 +66,34 @@ function! s:SID()
   return matchstr(expand('<sfile>'), '<SNR>\zs\d\+\ze_SID$')
 endfun
 
-" hard tabs are often bad
-function! <SID>UseSpacesNotTabs(nr_spaces)
-  let &l:shiftwidth = a:nr_spaces
-  let &l:softtabstop = a:nr_spaces
-  let &l:expandtab = 1
+" change basic parameters like tabs vs. spaces, width, etc.
+function! s:TextParams(hardtab, tabwidth, textwidth)
+  if a:hardtab
+    let &l:expandtab = 0
+  else
+    let &l:expandtab = 1
+  endif
+  let &l:shiftwidth = a:tabwidth
+  let &l:softtabstop = a:tabwidth
+  let &l:textwidth = a:textwidth
 endfunction
 
 augroup Filetypes
   autocmd!
-  autocmd FileType text   setlocal textwidth=72
-  autocmd FileType vim    call <SID>UseSpacesNotTabs(2)
-  autocmd FileType python call <SID>UseSpacesNotTabs(4)
-  autocmd FileType json   call <SID>UseSpacesNotTabs(2)
-  autocmd FileType json   setlocal formatoptions=tcq2l
-  autocmd FileType json   setlocal foldmethod=syntax
+  autocmd FileType text       call <SID>TextParams(1, 8, 72)
+  autocmd FileType vim        call <SID>TextParams(0, 2, 0)
+  autocmd FileType python     call <SID>TextParams(0, 4, 78)
+  autocmd FileType htmldjango call <SID>TextParams(0, 2, 0)
+  autocmd FileType html       call <SID>TextParams(0, 2, 0)
+  autocmd FileType css        call <SID>TextParams(0, 2, 0)
+  autocmd FileType javascript call <SID>TextParams(0, 2, 0)
+  autocmd FileType vb         call <SID>TextParams(0, 4, 0)
+  autocmd FileType markdown   call <SID>TextParams(0, 2, 72)
+  autocmd FileType yaml       call <SID>TextParams(0, 2, 0)
+  autocmd FileType yaml       setlocal noautoindent
+  autocmd FileType json       call <SID>TextParams(0, 2, 0)
+  autocmd FileType json       setlocal formatoptions=tcq2l
+  autocmd FileType json       setlocal foldmethod=syntax
 augroup END
 
 " trailing whitespace is bad, mmkay?
@@ -63,6 +102,20 @@ augroup NoTrailingSpace
   autocmd!
   autocmd Syntax python syn match CustomTrailingSpace /\s\+$/
 augroup END
+
+" Settings for common textfields that I want to edit in Vim using GhostText,
+" rather than directly in the browser
+if has('nvim')
+  augroup GhostText
+    autocmd!
+    " BMC Remedy ticket descriptions, replies, etc.
+    autocmd BufNewFile,BufRead /var/folders/*/ghost-remedy*.txt set textwidth=0
+    autocmd BufNewFile,BufRead /var/folders/*/ghost-remedy*.txt set syntax=mail
+    " ESS Wiki
+    autocmd BufNewFile,BufRead /var/folders/*/ghost-in*esswiki*.txt set textwidth=0
+    autocmd BufNewFile,BufRead /var/folders/*/ghost-in*esswiki*.txt set syntax=mediawiki
+  augroup END
+endif
 
 " xsel clipboard commands
 if executable("xsel") == 1
@@ -83,36 +136,50 @@ if executable("xsel") == 1
   command! XPaste call <SID>DoXPaste()
 endif
 
-" hierarchical text files -- occasionally useful for braindumps
-function! <SID>HierarchicalFoldExpr()
-  let l:foldlevel = -1
-  " Is this a blank line?
-  if getline(v:lnum)=='^$'
-    " Yes it is, so use the foldlevel from before or after
-    " this line (whichever is lowest)
-    let l:foldlevel = -1
-  else
-    " Line is not blank, so...
-    " Does this line have fewer spaces of indent than the
-    " next line?
-    if indent(v:lnum) < indent(v:lnum+1)
-      " If so, then a fold with a level equal to the
-      " NEXT line's indent starts at THIS line
-      let l:foldlevel = '>'.indent(v:lnum+1)
-    else
-      " If not, then the fold at this line has a
-      " level equal to THIS line's indent
-      let l:foldlevel = indent(v:lnum)
-    endif
-  endif
-  return l:foldlevel
+" https://vi.stackexchange.com/questions/14829/close-multiple-buffers-interactively
+function! <SID>InteractiveBufDelete()
+  let l:prompt = "Specify buffers to delete: "
+
+  ls | let bufnums = input(l:prompt)
+  while strlen(bufnums)
+    echo "\n"
+    let buflist = split(bufnums)
+    for bufitem in buflist
+      if match(bufitem, '^\d\+,\d\+$') >= 0
+        exec ':' . bufitem . 'bd'
+      elseif match(bufitem, '^\d\+$') >= 0
+        exec ':bd ' . bufitem
+      else
+        echohl ErrorMsg | echo 'Not a number or range: ' . bufitem | echohl None
+      endif 
+    endfor
+    ls | let bufnums = input(l:prompt)
+  endwhile 
+
 endfunction
-function! <SID>UseHierarchicalFolds()
-  let &l:foldmethod = "expr"
-  echo s:SID()
-  let &l:foldexpr = "<SNR>" . s:SID() . "_HierarchicalFoldExpr()"
-  let &l:foldtext = "getline(v:foldstart)"
-  let &l:foldlevel = 99  " open all folds by default
-  call <SID>UseSpacesNotTabs(2)
-endfunction
-command! UseHierarchicalFolds call <SID>UseHierarchicalFolds()
+nnoremap <silent> <leader>bd :call <SID>InteractiveBufDelete()<CR>
+
+" https://github.com/moll/vim-bbye
+nnoremap <Leader>q :Bdelete<CR>
+
+" Open a gnome-terminal in the directory of the current file
+nnoremap <Leader>term :!gnome-terminal --working-directory=%:p:h<CR>
+
+" https://shapeshed.com/vim-netrw/
+let g:netrw_banner = 0
+
+" CTRL_W o works differently from tmux and results in all windows except
+" for the current one being closed; disable it entirely
+nnoremap <C-w>o <Nop>
+nnoremap <C-w><C-O> <Nop>
+
+" https://pragprog.com/titles/dnvim2/practical-vim-second-edition/
+cnoremap <expr> %%  getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
+" https://github.com/fatih/vim-go/blob/master/doc/vim-go.txt
+let g:go_code_completion_enabled = 0
+let g:go_fmt_autosave = 0
+let g:go_mod_fmt_autosave = 0
+let g:go_asmfmt_autosave = 0
+let g:go_metalinter_autosave = 0
+let g:go_imports_autosave = 0
