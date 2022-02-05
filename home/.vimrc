@@ -1,10 +1,12 @@
 " Louis Wust's vimrc
-" 2021-08-16
+" 2022-02-05
 
 set nocompatible
 
 filetype off                  " required
-set packpath+=~/.homesick/repos/dotvim/vim
+if has('packages')
+  set packpath+=~/.homesick/repos/dotvim/vim
+endif
 set runtimepath+=~/.homesick/repos/dotvim/vim
 "Plugin 'PProvost/vim-ps1'
 "Plugin 'm-pilia/vim-mediawiki'
