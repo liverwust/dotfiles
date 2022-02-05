@@ -3,18 +3,15 @@
 
 set nocompatible
 
-" https://github.com/VundleVim/Vundle.vim
 filetype off                  " required
-set packpath+=~/.homesick/repos/dotvim/vim/pack
+set packpath+=~/.homesick/repos/dotvim/vim
 set runtimepath+=~/.homesick/repos/dotvim/vim
-set runtimepath+=~/.homesick/repos/dotvim/vim/bundle/Vundle.vim
 "Plugin 'PProvost/vim-ps1'
 "Plugin 'm-pilia/vim-mediawiki'
 if has('nvim')
   "Plugin 'raghur/vim-ghost'
   let g:ghost_darwin_app = 'iTerm2'
   let g:ghost_autostart = 1
-  "call vundle#end()            " required
 endif
 " All of your Plugins must be added before the following line
 filetype plugin indent on
