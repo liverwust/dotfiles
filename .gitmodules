@@ -1,0 +1,3 @@
+[submodule "vim/pack/bbye"]
+	path = vim/pack/bbye
+	url = https://github.com/moll/vim-bbye.git
