@@ -5,7 +5,8 @@ set nocompatible
 
 " https://github.com/VundleVim/Vundle.vim
 filetype off                  " required
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.homesick/repos/dotvim/vim
+set rtp+=~/.homesick/repos/dotvim/vim/bundle/Vundle.vim
 if has('nvim')
   call vundle#begin()
   Plugin 'VundleVim/Vundle.vim'
