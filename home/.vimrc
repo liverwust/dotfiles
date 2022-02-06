@@ -4,10 +4,13 @@
 set nocompatible
 
 filetype off                  " required
+set runtimepath+=~/.homesick/repos/dotvim/vim
 if has('packages')
   set packpath+=~/.homesick/repos/dotvim/vim
+else
+  source ~/.homesick/repos/dotvim/vim-pathogen/autoload/pathogen.vim
+  execute pathogen#infect()
 endif
-set runtimepath+=~/.homesick/repos/dotvim/vim
 "Plugin 'PProvost/vim-ps1'
 "Plugin 'm-pilia/vim-mediawiki'
 if has('nvim')
