@@ -7,3 +7,9 @@
 [submodule "vim-pathogen"]
 	path = vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
+[submodule "vim-ghost"]
+	path = vim-ghost
+	url = https://github.com/raghur/vim-ghost
+[submodule "vim-mediawiki"]
+	path = vim-mediawiki
+	url = https://github.com/m-pilia/vim-mediawiki

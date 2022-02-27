@@ -11,25 +11,24 @@ else
   source ~/.homesick/repos/dotvim/vim-pathogen/autoload/pathogen.vim
   execute pathogen#infect()
 endif
-"Plugin 'PProvost/vim-ps1'
 "Plugin 'm-pilia/vim-mediawiki'
 if has('nvim')
-  "Plugin 'raghur/vim-ghost'
   let g:ghost_darwin_app = 'iTerm2'
   let g:ghost_autostart = 1
 endif
 " All of your Plugins must be added before the following line
 filetype plugin indent on
 
-set visualbell   " Use visual bell instead of beeping
-set showcmd      " Show (partial) command in status line
-set showmatch    " Show matching brackets
-set ignorecase   " Do case insensitive matching
-set smartcase    " Do smart case matching
-set incsearch    " Incremental search
-set shiftround   " Round indent to multiple of 'shiftwidth'
-set autoindent   " Copy indent from current line when starting a new line 
-set ruler        " Show current file position in lower-right
+set visualbell                 " Use visual bell instead of beeping
+set showcmd                    " Show (partial) command in status line
+set showmatch                  " Show matching brackets
+set ignorecase                 " Do case insensitive matching
+set smartcase                  " Do smart case matching
+set incsearch                  " Incremental search
+set shiftround                 " Round indent to multiple of 'shiftwidth'
+set autoindent                 " Copy indent from current line to new line
+set ruler                      " Show current file position in lower-right
+set backspace=indent,eol,start " Tell backspace to do its job
 nnoremap <Leader>xw :%s/\s\+$//<cr>
 
 " Use this at home (Vim 8). Comment it out for work (Vim 7).
