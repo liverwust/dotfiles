@@ -13,3 +13,6 @@
 [submodule "vim-mediawiki"]
 	path = vim-mediawiki
 	url = https://github.com/m-pilia/vim-mediawiki
+[submodule "ansible-vim"]
+	path = ansible-vim
+	url = git@github.com:liverwust/ansible-vim.git
