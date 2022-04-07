@@ -29,6 +29,7 @@ set shiftround                 " Round indent to multiple of 'shiftwidth'
 set autoindent                 " Copy indent from current line to new line
 set ruler                      " Show current file position in lower-right
 set backspace=indent,eol,start " Tell backspace to do its job
+colorscheme solarized
 nnoremap <Leader>xw :%s/\s\+$//<cr>
 
 " Use this at home (Vim 8). Comment it out for work (Vim 7).
@@ -56,9 +57,6 @@ if has('gui_running')
   set guioptions-=r
   set guioptions-=R
   set guioptions-=L
-  colorscheme monokai
-else
-  colorscheme xoria256
 endif
 
 " straight from Vim's map.txt
