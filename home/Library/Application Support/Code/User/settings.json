@@ -79,5 +79,7 @@
     "powershell.powerShellDefaultVersion": "PowerShell 7.1.3",
     "update.mode": "none",
     "editor.autoClosingBrackets": "never",
-    "terminal.integrated.macOptionIsMeta": true
+    "terminal.integrated.macOptionIsMeta": true,
+    "editor.wordWrap": "on",
+    "window.zoomLevel": 1
 }
