@@ -7,6 +7,10 @@ filetype off                  " required
 set runtimepath+=~/.homesick/repos/dotvim/vim
 if has('packages')
   set packpath+=~/.homesick/repos/dotvim/vim
+  if has('nvim')
+    "Isolate vim-ghost, which causes an error on Vim 7.9
+    set packpath+=~/.homesick/repos/dotvim/nvim-only-packages
+  endif
 else
   source ~/.homesick/repos/dotvim/vim-pathogen/autoload/pathogen.vim
   execute pathogen#infect()
