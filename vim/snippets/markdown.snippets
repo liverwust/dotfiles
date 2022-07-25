@@ -81,20 +81,11 @@ snippet ---
 	`repeat('-', strlen(getline(line('.') - 3)))`
 
 	${0}
+# LWW: GitLab-flavored Markdown
 snippet blockquote
-	{% blockquote %}
+	>>>
 	${0:quote}
-	{% endblockquote %}
-
-snippet blockquote-author
-	{% blockquote ${1:author}, ${2:title} %}
-	${0:quote}
-	{% endblockquote %}
-
-snippet blockquote-link
-	{% blockquote ${1:author} ${2:URL} ${3:link_text} %}
-	${0:quote}
-	{% endblockquote %}
+	>>>
 
 snippet ```
 	\`\`\`${1}
