@@ -3,6 +3,9 @@
 
 set nocompatible
 
+" Use non-legacy SnipMate parser
+let g:snipMate = { 'snippet_version' : 1 }
+
 filetype off                  " required
 set runtimepath+=~/.homesick/repos/dotvim/vim
 if has('packages')
