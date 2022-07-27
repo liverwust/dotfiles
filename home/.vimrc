@@ -35,6 +35,7 @@ set incsearch                  " Incremental search
 set shiftround                 " Round indent to multiple of 'shiftwidth'
 set autoindent                 " Copy indent from current line to new line
 set ruler                      " Show current file position in lower-right
+set splitright                 " :vsplit new window on the right, not left
 set backspace=indent,eol,start " Tell backspace to do its job
 colorscheme solarized
 nnoremap <Leader>xw :%s/\s\+$//<cr>
