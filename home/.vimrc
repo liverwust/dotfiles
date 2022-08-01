@@ -168,6 +168,12 @@ nnoremap <silent> <leader>bd :call <SID>InteractiveBufDelete()<CR>
 " https://github.com/moll/vim-bbye
 nnoremap <Leader>q :Bdelete<CR>
 
+" Quick access to common hard-tab/soft-tab conventions
+nnoremap <Leader>t8 :set sw=8<CR>:set sts=8<CR>:set noet<CR>
+nnoremap <Leader>s8 :set sw=8<CR>:set sts=8<CR>:set et<CR>
+nnoremap <Leader>s4 :set sw=4<CR>:set sts=4<CR>:set et<CR>
+nnoremap <Leader>s2 :set sw=2<CR>:set sts=2<CR>:set et<CR>
+
 " Open a gnome-terminal in the directory of the current file
 nnoremap <Leader>term :!gnome-terminal --working-directory=%:p:h<CR>
 
