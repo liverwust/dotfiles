@@ -1,5 +1,5 @@
 " Louis Wust's vimrc
-" 2022-10-02
+" 2022-10-22
 
 set nocompatible
 
@@ -45,6 +45,13 @@ if has('gui_running')
   set guioptions-=r
   set guioptions-=R
   set guioptions-=L
+endif
+
+" macOS settings
+if has('mac')
+  " https://stackoverflow.com/a/53625973/5265820
+  let &t_ZH="\e[3m"
+  let &t_ZR="\e[23m"
 endif
 
 " straight from Vim's map.txt
