@@ -82,6 +82,9 @@ augroup Filetypes
   autocmd FileType javascript call <SID>TextParams(0, 2, 0)
   autocmd FileType vb         call <SID>TextParams(0, 4, 0)
   autocmd FileType markdown   call <SID>TextParams(0, 2, 72)
+  " https://github.com/vim/vim/issues/5880
+  " E363 seen when opening markdown or using the square left bracket.
+  autocmd FileType markdown   set maxmempattern=100000
   autocmd FileType yaml       call <SID>TextParams(0, 2, 0)
   autocmd FileType yaml       setlocal noautoindent
   autocmd FileType json       call <SID>TextParams(0, 2, 0)
