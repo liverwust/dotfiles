@@ -90,6 +90,7 @@ augroup Filetypes
   autocmd FileType json       call <SID>TextParams(0, 2, 0)
   autocmd FileType json       setlocal formatoptions=tcq2l
   autocmd FileType json       setlocal foldmethod=syntax
+  autocmd FileType mermaid    call <SID>TextParams(0, 2, 0)
 augroup END
 
 " trailing whitespace is bad, mmkay?

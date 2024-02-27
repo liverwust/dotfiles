@@ -43,3 +43,6 @@
 [submodule "vim-table-mode"]
 	path = vim-table-mode
 	url = https://github.com/dhruvasagar/vim-table-mode.git
+[submodule "vim-mermaid"]
+	path = vim-mermaid
+	url = https://github.com/chazmcgarvey/vim-mermaid.git
