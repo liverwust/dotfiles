@@ -39,6 +39,12 @@ if has('mac')
   let &t_ZR="\e[23m"
 endif
 
+" Windows settings
+if has('win32')
+  " Ctrl-V to paste
+  inoremap <C-V> <C-R>+
+endif
+
 " straight from Vim's map.txt
 function! s:SID()
   return matchstr(expand('<sfile>'), '<SNR>\zs\d\+\ze_SID$')
