@@ -31,3 +31,6 @@
 [submodule "vim-mermaid"]
 	path = vim-mermaid
 	url = https://github.com/chazmcgarvey/vim-mermaid.git
+[submodule "vim-ultisnips"]
+	path = vim-ultisnips
+	url = https://github.com/SirVer/ultisnips.git
