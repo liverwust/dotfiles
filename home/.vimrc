@@ -1,14 +1,9 @@
 set nocompatible
 
-filetype off                  " required
+filetype off
 set runtimepath+=~/.homesick/repos/dotvim/vim
-if has('packages')
-  set packpath+=~/.homesick/repos/dotvim/vim
-else
-  source ~/.homesick/repos/dotvim/vim-pathogen/autoload/pathogen.vim
-  execute pathogen#infect()
-endif
-" All of your Plugins must be added before the following line
+source ~/.homesick/repos/dotvim/vim-pathogen/autoload/pathogen.vim
+execute pathogen#infect('bundle/{}', '~/.homesick/repos/dotvim/{}')
 filetype plugin indent on
 
 set visualbell                 " Use visual bell instead of beeping
