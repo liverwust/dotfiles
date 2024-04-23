@@ -121,3 +121,7 @@ nnoremap <Leader>s2 :set sw=2<CR>:set sts=2<CR>:set et<CR>
 " for the current one being closed; disable it entirely
 nnoremap <C-w>o <Nop>
 nnoremap <C-w><C-O> <Nop>
+
+" Easy access to vimrc
+nnoremap <Leader>sv :source $MYVIMRC<cr>
+nnoremap <Leader>ev :e $MYVIMRC<cr>
