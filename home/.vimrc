@@ -1,19 +1,9 @@
-" Louis Wust's vimrc
-" 2022-10-22
-
 set nocompatible
-
-" Use non-legacy SnipMate parser
-let g:snipMate = { 'snippet_version' : 1 }
 
 filetype off                  " required
 set runtimepath+=~/.homesick/repos/dotvim/vim
 if has('packages')
   set packpath+=~/.homesick/repos/dotvim/vim
-  if has('nvim')
-    "Isolate vim-ghost, which causes an error on Vim 7.9
-    set packpath+=~/.homesick/repos/dotvim/nvim-only-packages
-  endif
 else
   source ~/.homesick/repos/dotvim/vim-pathogen/autoload/pathogen.vim
   execute pathogen#infect()
@@ -100,22 +90,6 @@ augroup NoTrailingSpace
   autocmd Syntax python syn match CustomTrailingSpace /\s\+$/
 augroup END
 
-" Settings for common textfields that I want to edit in Vim using GhostText,
-" rather than directly in the browser
-if has('nvim')
-  let g:ghost_darwin_app = 'iTerm2'
-  let g:ghost_autostart = 1
-  augroup GhostText
-    autocmd!
-    " BMC Remedy ticket descriptions, replies, etc.
-    autocmd BufNewFile,BufRead /var/folders/*/ghost-remedy*.txt set textwidth=0
-    autocmd BufNewFile,BufRead /var/folders/*/ghost-remedy*.txt set syntax=mail
-    " ESS Wiki
-    autocmd BufNewFile,BufRead /var/folders/*/ghost-in*esswiki*.txt set textwidth=0
-    autocmd BufNewFile,BufRead /var/folders/*/ghost-in*esswiki*.txt set syntax=mediawiki
-  augroup END
-endif
-
 " https://vi.stackexchange.com/questions/14829/close-multiple-buffers-interactively
 function! <SID>InteractiveBufDelete()
   let l:prompt = "Specify buffers to delete: "
@@ -147,9 +121,6 @@ nnoremap <Leader>t8 :set sw=8<CR>:set sts=8<CR>:set noet<CR>
 nnoremap <Leader>s8 :set sw=8<CR>:set sts=8<CR>:set et<CR>
 nnoremap <Leader>s4 :set sw=4<CR>:set sts=4<CR>:set et<CR>
 nnoremap <Leader>s2 :set sw=2<CR>:set sts=2<CR>:set et<CR>
-
-" https://shapeshed.com/vim-netrw/
-let g:netrw_banner = 0
 
 " CTRL_W o works differently from tmux and results in all windows except
 " for the current one being closed; disable it entirely
