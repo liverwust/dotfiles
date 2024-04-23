@@ -2,6 +2,7 @@ set nocompatible
 
 filetype off
 set runtimepath+=~/.homesick/repos/dotvim/vim
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.homesick/repos/dotvim/vim/UltiSnips']
 source ~/.homesick/repos/dotvim/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect('bundle/{}', '~/.homesick/repos/dotvim/{}')
 filetype plugin indent on
