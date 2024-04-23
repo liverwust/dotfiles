@@ -20,10 +20,45 @@ set backspace=indent,eol,start " Tell backspace to do its job
 colorscheme solarized
 syntax enable
 
+" https://vi.stackexchange.com/a/3104/25883
+if has("unix")
+    function! FontSizePlus ()
+      let l:gf_size_whole = matchstr(&guifont, '\( \)\@<=\d\+$')
+      let l:gf_size_whole = l:gf_size_whole + 1
+      let l:new_font_size = ' '.l:gf_size_whole
+      let &guifont = substitute(&guifont, ' \d\+$', l:new_font_size, '')
+    endfunction
+    function! FontSizeMinus ()
+      let l:gf_size_whole = matchstr(&guifont, '\( \)\@<=\d\+$')
+      let l:gf_size_whole = l:gf_size_whole - 1
+      let l:new_font_size = ' '.l:gf_size_whole
+      let &guifont = substitute(&guifont, ' \d\+$', l:new_font_size, '')
+    endfunction
+else
+    function! FontSizePlus ()
+      let l:gf_size_whole = matchstr(&guifont, '\(:h\)\@<=\d\+$')
+      let l:gf_size_whole = l:gf_size_whole + 1
+      let l:new_font_size = ':h'.l:gf_size_whole
+      let &guifont = substitute(&guifont, ':h\d\+$', l:new_font_size, '')
+    endfunction
+    function! FontSizeMinus ()
+      let l:gf_size_whole = matchstr(&guifont, '\(:h\)\@<=\d\+$')
+      let l:gf_size_whole = l:gf_size_whole - 1
+      let l:new_font_size = ':h'.l:gf_size_whole
+      let &guifont = substitute(&guifont, ':h\d\+$', l:new_font_size, '')
+    endfunction
+endif
+
 " GVim settings
-if has('gui_running')
-  " Linux (or other) setup
-  set guifont=DejaVu\ Sans\ Mono\ 13
+if has("gui_running")
+  if has('unix')
+    set guifont=DejaVu\ Sans\ Mono\ 13
+  elseif has('win32')
+    set guifont=DejaVu_Sans_Mono:h13
+  endif
+  nnoremap <Leader>- :call FontSizeMinus()<CR>
+  nnoremap <Leader>+ :call FontSizePlus()<CR>
+  nnoremap <Leader>= :call FontSizePlus()<CR>
   set lines=32
   set guioptions-=T
   set guioptions-=m
