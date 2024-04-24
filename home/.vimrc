@@ -4,7 +4,12 @@ filetype off
 set runtimepath+=~/.homesick/repos/dotvim/vim
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.homesick/repos/dotvim/vim/UltiSnips']
 source ~/.homesick/repos/dotvim/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect('bundle/{}', '~/.homesick/repos/dotvim/{}')
+" Consider restricted submodules, which should be conditionally loaded
+if has("python3")
+  execute pathogen#infect('bundle/{}', '~/.homesick/repos/dotvim/{}', '~/.homesick/repos/dotvim/restricted-submodules/vim-ultisnips')
+else
+  execute pathogen#infect('bundle/{}', '~/.homesick/repos/dotvim/{}')
+endif
 filetype plugin indent on
 
 set visualbell                 " Use visual bell instead of beeping
