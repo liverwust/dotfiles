@@ -1,14 +1,21 @@
 set nocompatible
 
+" Set the locaion of the dotvim repository
+if has('win32')
+  let g:dotvim=$HOME..'/Documents/Repositories/dotvim'
+else
+  let g:dotvim=$HOME..'/.homesick/repos/dotvim'
+endif
+
 filetype off
-set runtimepath+=~/.homesick/repos/dotvim/vim
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.homesick/repos/dotvim/vim/UltiSnips']
-source ~/.homesick/repos/dotvim/vim-pathogen/autoload/pathogen.vim
+let &runtimepath..=','..g:dotvim..'/vim'
+let g:UltiSnipsSnippetDirectories=[g:dotvim..'/vim/UltiSnips']
+execute 'source '..g:dotvim..'/vim-pathogen/autoload/pathogen.vim'
 " Consider restricted submodules, which should be conditionally loaded
 if has("python3")
-  execute pathogen#infect('bundle/{}', '~/.homesick/repos/dotvim/{}', '~/.homesick/repos/dotvim/restricted-submodules/vim-ultisnips')
+  execute pathogen#infect('bundle/{}', g:dotvim..'/{}', g:dotvim..'/restricted-submodules/vim-ultisnips')
 else
-  execute pathogen#infect('bundle/{}', '~/.homesick/repos/dotvim/{}')
+  execute pathogen#infect('bundle/{}', g:dotvim..'/{}')
 endif
 filetype plugin indent on
 
@@ -171,6 +178,10 @@ nnoremap <C-w>o <Nop>
 nnoremap <C-w><C-O> <Nop>
 
 " Easy access to vimrc
+" Reference the version in g:dotvim to allow fugitive to work
+" (vs. looking for ~/.vimrc or ~/_vimrc a.k.a. $MYVIMRC outside the repo)
+execute 'nnoremap <Leader>sv :source '..g:dotvim..'/home/.vimrc<cr>'
+execute 'nnoremap <Leader>ev :e '..g:dotvim..'/home/.vimrc<cr>'
 nnoremap <Leader>sv :source $MYVIMRC<cr>
 nnoremap <Leader>ev :e $MYVIMRC<cr>
 
