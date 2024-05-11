@@ -31,6 +31,7 @@ set ruler                      " Show current file position in lower-right
 set splitright                 " :vsplit new window on the right, not left
 set cursorline                 " I love solarized light; but I need this !
 set backspace=indent,eol,start " Tell backspace to do its job
+set background=light           " Pathological usage of light-mode
 colorscheme solarized
 syntax enable
 
