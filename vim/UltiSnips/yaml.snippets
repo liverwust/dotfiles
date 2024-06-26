@@ -3,7 +3,7 @@
 # and prefixing the line with the - (YAML list) character.
 
 snippet acl
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.posix.acl:
     path: ${2}
     #recursive: ${3:no}
@@ -19,7 +19,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet alternatives
-name:  ${1:task_description}
+name: ${1:task_description}
   community.general.alternatives:
     path: ${2}
     name: ${3}
@@ -28,7 +28,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet assemble
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.assemble:
     src: ${2}
     dest: ${3}
@@ -51,7 +51,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet assert
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.assert:
     that: ${2}
     #fail_msg: ${3}
@@ -59,7 +59,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet authorized_key
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.posix.authorized_key:
     user: ${2}
     key: ${3}
@@ -74,7 +74,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet blockinfile
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.blockinfile:
     path: ${2}
     #group: ${3}
@@ -99,9 +99,9 @@ name:  ${1:task_description}
 endsnippet
 
 snippet command
-name:  ${1:task_description}
-  ansible.builtin.command:
-    free_form: ${2}
+name: ${1:task_description}
+  ansible.builtin.command: ${2}
+  args:
     #warn: ${3:yes}
     #creates: ${4}
     #chdir: ${5}
@@ -111,7 +111,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet copy
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.copy:
     dest: ${2}
     #src: ${3}
@@ -137,7 +137,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet cron
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.cron:
     #cron_file: ${2}
     #month: ${3:*}
@@ -159,7 +159,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet cronvar
-name:  ${1:task_description}
+name: ${1:task_description}
   community.general.cronvar:
     name: ${2}
     #insertbefore: ${3}
@@ -172,7 +172,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet cups_lpadmin
-name:  ${1:task_description}
+name: ${1:task_description}
   nas_ess.system.cups_lpadmin:
     assign_cups_policy: ${2}
     class_members: ${3}
@@ -197,7 +197,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet debug
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.debug:
     #msg: ${2:Hello world!}
     #var: ${3}
@@ -205,7 +205,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet dnf
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.dnf:
     name: ${2}
     #autoremove: ${3}
@@ -233,13 +233,13 @@ name:  ${1:task_description}
 endsnippet
 
 snippet fail
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.fail:
     msg: ${2}
 endsnippet
 
 snippet fetch
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.fetch:
     dest: ${2}
     src: ${3}
@@ -249,7 +249,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet file
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.file:
     path: ${2}
     #src: ${3}
@@ -273,7 +273,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet find
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.find:
     paths: ${2}
     #excludes: ${3}
@@ -292,7 +292,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet firewalld
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.posix.firewalld:
     state: ${2}
     #zone: ${3:system-default(public)}
@@ -308,7 +308,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet gem
-name:  ${1:task_description}
+name: ${1:task_description}
   community.general.gem:
     name: ${2}
     #include_dependencies: ${3:yes}
@@ -326,7 +326,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet generate_podman_subs
-name:  ${1:task_description}
+name: ${1:task_description}
   nas_ess.infra.generate_podman_subs:
     sub: ${2}
     user: ${3}
@@ -336,7 +336,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet getent
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.getent:
     database: ${2}
     #fail_key: ${3:yes}
@@ -345,7 +345,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet get_url
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.get_url:
     dest: ${2}
     url: ${3}
@@ -376,7 +376,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet git
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.git:
     dest: ${2}
     repo: ${3}
@@ -402,7 +402,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet group
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.group:
     name: ${2}
     #state: ${3:present}
@@ -412,7 +412,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet idrac_user
-name:  ${1:task_description}
+name: ${1:task_description}
   dellemc.openmanage.idrac_user:
     idrac_ip: ${2}
     idrac_password: ${3}
@@ -437,7 +437,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet import_role
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.import_role:
     name: ${2}
     #allow_duplicates: ${3:yes}
@@ -448,7 +448,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet include_role
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.include_role:
     name: ${2}
     #private: ${3}
@@ -460,8 +460,16 @@ name:  ${1:task_description}
     #public: ${9:no}
 endsnippet
 
+snippet include_tasks
+name: ${1:task_description}
+  ansible.builtin.include_tasks: ${2}
+  args:
+    #apply: ${3}
+    #file: ${4}
+endsnippet
+
 snippet ini_file
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.ini_file:
     section: ${2}
     path: ${3}
@@ -485,7 +493,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet ini_file
-name:  ${1:task_description}
+name: ${1:task_description}
   community.general.ini_file:
     section: ${2}
     path: ${3}
@@ -509,7 +517,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet ldap_search
-name:  ${1:task_description}
+name: ${1:task_description}
   community.general.ldap_search:
     attrs: ${2}
     bind_dn: ${3}
@@ -529,7 +537,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet lineinfile
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.lineinfile:
     path: ${2}
     #validate: ${3}
@@ -555,7 +563,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet mail
-name:  ${1:task_description}
+name: ${1:task_description}
   community.general.mail:
     subject: ${2}
     #body: ${3:$subject}
@@ -576,7 +584,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet mount
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.posix.mount:
     state: ${2}
     path: ${3}
@@ -591,7 +599,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet mysql_db
-name:  ${1:task_description}
+name: ${1:task_description}
   community.mysql.mysql_db:
     name: ${2}
     #login_port: ${3:3306}
@@ -614,7 +622,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet mysql_info
-name:  ${1:task_description}
+name: ${1:task_description}
   community.mysql.mysql_info:
     login_password: ${2}
     login_user: ${3}
@@ -634,7 +642,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet mysql_user
-name:  ${1:task_description}
+name: ${1:task_description}
   community.mysql.mysql_user:
     name: ${2}
     #login_port: ${3:3306}
@@ -660,7 +668,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet npm
-name:  ${1:task_description}
+name: ${1:task_description}
   community.general.npm:
     #executable: ${2}
     #name: ${3}
@@ -674,7 +682,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet openssh_keypair
-name:  ${1:task_description}
+name: ${1:task_description}
   community.crypto.openssh_keypair:
     force: ${2}
     comment: ${3}
@@ -698,7 +706,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet package
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.package:
     state: ${2}
     name: ${3}
@@ -706,13 +714,13 @@ name:  ${1:task_description}
 endsnippet
 
 snippet package_facts
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.package_facts:
     #manager: ${2:auto}
 endsnippet
 
 snippet pamd
-name:  ${1:task_description}
+name: ${1:task_description}
   community.general.pamd:
     control: ${2}
     name: ${3}
@@ -728,7 +736,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet pause
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.pause:
     #seconds: ${2}
     #minutes: ${3}
@@ -737,7 +745,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet pip
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.pip:
     #virtualenv: ${2}
     #virtualenv_site_packages: ${3:no}
@@ -755,7 +763,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet podman_container
-name:  ${1:task_description}
+name: ${1:task_description}
   containers.podman.podman_container:
     command: ${2}
     image: ${3}
@@ -881,7 +889,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet podman_container_exec
-name:  ${1:task_description}
+name: ${1:task_description}
   containers.podman.podman_container_exec:
     command: ${2}
     name: ${3}
@@ -896,7 +904,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet postgresql_db
-name:  ${1:task_description}
+name: ${1:task_description}
   community.postgresql.postgresql_db:
     name: ${2}
     #ssl_rootcert: ${3}
@@ -918,7 +926,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet postgresql_privs
-name:  ${1:task_description}
+name: ${1:task_description}
   community.postgresql.postgresql_privs:
     roles: ${2}
     database: ${3}
@@ -942,7 +950,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet postgresql_user
-name:  ${1:task_description}
+name: ${1:task_description}
   community.postgresql.postgresql_user:
     name: ${2}
     #ssl_rootcert: ${3}
@@ -965,7 +973,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet reboot
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.reboot:
     #pre_reboot_delay: ${2}
     #post_reboot_delay: ${3}
@@ -976,7 +984,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet replace
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.replace:
     path: ${2}
     regexp: ${3}
@@ -999,14 +1007,14 @@ name:  ${1:task_description}
 endsnippet
 
 snippet rhsm_repository
-name:  ${1:task_description}
+name: ${1:task_description}
   community.general.rhsm_repository:
     state: ${2:present}
     name: ${3}
 endsnippet
 
 snippet script
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.script: ${2}
     #chdir: ${3}
     #cmd: ${4}
@@ -1017,7 +1025,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet seboolean
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.posix.seboolean:
     state: ${2}
     name: ${3}
@@ -1025,7 +1033,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet sefcontext
-name:  ${1:task_description}
+name: ${1:task_description}
   community.general.sefcontext:
     setype: ${2}
     target: ${3}
@@ -1037,7 +1045,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet selinux
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.posix.selinux:
     state: ${2}
     #policy: ${3}
@@ -1045,7 +1053,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet service
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.service:
     name: ${2}
     #use: ${3:auto}
@@ -1058,18 +1066,18 @@ name:  ${1:task_description}
 endsnippet
 
 snippet service_facts
-name:  ${1:task_description}
+name: ${1:task_description}
       ansible.builtin.service_facts:
     endsnippet
 
 snippet set_fact
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.set_fact:
     ${2}
 endsnippet
 
 snippet setup
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.setup:
     #filter: ${2:*}
     #gather_subset: ${3:all}
@@ -1078,9 +1086,9 @@ name:  ${1:task_description}
 endsnippet
 
 snippet shell
-name:  ${1:task_description}
-  ansible.builtin.shell:
-    free_form: ${2}
+name: ${1:task_description}
+  ansible.builtin.shell: ${2}
+  args:
     #warn: ${3:yes}
     #creates: ${4}
     #executable: ${5}
@@ -1090,13 +1098,13 @@ name:  ${1:task_description}
 endsnippet
 
 snippet slurp
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.slurp:
     src: ${2}
 endsnippet
 
 snippet stat
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.stat:
     path: ${2}
     #get_checksum: ${3:yes}
@@ -1108,7 +1116,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet synchronize
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.posix.synchronize:
     src: ${2}
     dest: ${3}
@@ -1139,7 +1147,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet sysctl
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.posix.sysctl:
     name: ${2}
     #reload: ${3:yes}
@@ -1151,7 +1159,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet systemd
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.systemd:
     #no_block: ${2:no}
     #force: ${3}
@@ -1165,7 +1173,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet tempfile
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.tempfile:
     #path: ${2}
     #state: ${3:file}
@@ -1174,7 +1182,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet template
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.template:
     dest: ${2}
     src: ${3}
@@ -1202,14 +1210,14 @@ name:  ${1:task_description}
 endsnippet
 
 snippet timezone
-name:  ${1:task_description}
+name: ${1:task_description}
   community.general.timezone:
     #hwclock: ${2}
     #name: ${3}
 endsnippet
 
 snippet unarchive
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.unarchive:
     src: ${2}
     dest: ${3}
@@ -1234,13 +1242,13 @@ name:  ${1:task_description}
 endsnippet
 
 snippet update_fact
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.utils.update_fact:
     ${2}
 endsnippet
 
 snippet uri
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.uri:
     url: ${2}
     #body: ${3}
@@ -1267,7 +1275,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet user
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.user:
     name: ${2}
     #comment: ${3}
@@ -1302,7 +1310,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet vmware_host_config_manager
-name:  ${1:task_description}
+name: ${1:task_description}
   community.vmware.vmware_host_config_manager:
     #username: ${2}
     #hostname: ${3}
@@ -1315,7 +1323,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet vmware_host_user_manager
-name:  ${1:task_description}
+name: ${1:task_description}
   community.vmware.vmware_host_user_manager:
     esxi_hostname: ${2}
     hostname: ${3}
@@ -1333,7 +1341,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet xml
-name:  ${1:task_description}
+name: ${1:task_description}
   community.general.xml:
     path: ${2}
     xmlstring: ${3}
@@ -1354,7 +1362,7 @@ name:  ${1:task_description}
 endsnippet
 
 snippet yum
-name:  ${1:task_description}
+name: ${1:task_description}
   ansible.builtin.yum:
     #autoremove: ${2}
     #disable_plugin: ${3}
