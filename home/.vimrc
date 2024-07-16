@@ -22,6 +22,7 @@ set shiftround                 " Round indent to multiple of 'shiftwidth'
 set autoindent                 " Copy indent from current line to new line
 set ruler                      " Show current file position in lower-right
 set splitright                 " :vsplit new window on the right, not left
+set cursorline                 " I love solarized light; but I need this !
 set backspace=indent,eol,start " Tell backspace to do its job
 colorscheme solarized
 syntax enable
@@ -172,3 +173,7 @@ nnoremap <C-w><C-O> <Nop>
 " Easy access to vimrc
 nnoremap <Leader>sv :source $MYVIMRC<cr>
 nnoremap <Leader>ev :e $MYVIMRC<cr>
+
+" Move to next/previous quickfix list item, e.g. for vimgrep
+nnoremap <Leader>[ :cp<cr>
+nnoremap <Leader>] :cn<cr>
