@@ -143,6 +143,18 @@ augroup NoTrailingSpace
   autocmd Syntax python syn match CustomTrailingSpace /\s\+$/
 augroup END
 
+augroup VimGoCustomization
+  autocmd!
+  " https://github.com/fatih/vim-go/issues/3497
+  if (has('balloon_eval') && has('gui_running')) || has('balloon_eval_term')
+    set ballooneval
+    autocmd FileType go setlocal balloonexpr=go#tool#DescribeBalloon()
+  endif
+  if has('popupwin')
+     let g:go_doc_popup_window = 1
+  endif
+augroup END
+
 " https://vi.stackexchange.com/questions/14829/close-multiple-buffers-interactively
 function! <SID>InteractiveBufDelete()
   let l:prompt = "Specify buffers to delete: "
