@@ -3,12 +3,14 @@ set nocompatible
 " Set the location of the dotvim repository
 if has('win32')
   let g:dotvim=$HOME..'/Documents/Repositories/dotvim'
+elseif has('win32unix')
+  " E.g., git bash when editing a commit
+  let g:dotvim='/c/Users/lwust/Documents/Repositories/dotvim'
 else
   let g:dotvim=$HOME..'/.homesick/repos/dotvim'
 endif
 
 filetype off
-let &runtimepath..=','..g:dotvim..'/vim'
 let g:UltiSnipsSnippetDirectories=[g:dotvim..'/vim/UltiSnips']
 execute 'source '..g:dotvim..'/vim-pathogen/autoload/pathogen.vim'
 " Consider restricted submodules, which should be conditionally loaded
@@ -17,6 +19,7 @@ if has("python3")
 else
   execute pathogen#infect('bundle/{}', g:dotvim..'/{}')
 endif
+let &runtimepath=g:dotvim..'/vim,'..&runtimepath
 filetype plugin indent on
 
 set visualbell                 " Use visual bell instead of beeping
