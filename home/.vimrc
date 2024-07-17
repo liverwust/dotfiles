@@ -1,6 +1,6 @@
 set nocompatible
 
-" Set the locaion of the dotvim repository
+" Set the location of the dotvim repository
 if has('win32')
   let g:dotvim=$HOME..'/Documents/Repositories/dotvim'
 else
@@ -93,6 +93,8 @@ endif
 if has('win32')
   " Ctrl-V to paste
   inoremap <C-V> <C-R>+
+  " PowerShell to run external commands
+  set shell=\"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe\"
 endif
 
 " straight from Vim's map.txt
