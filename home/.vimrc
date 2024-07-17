@@ -205,6 +205,7 @@ nnoremap <C-w><C-O> <Nop>
 " (vs. looking for ~/.vimrc or ~/_vimrc a.k.a. $MYVIMRC outside the repo)
 execute 'nnoremap <Leader>sv :source '..g:dotvim..'/home/.vimrc<cr>'
 execute 'nnoremap <Leader>ev :e '..g:dotvim..'/home/.vimrc<cr>'
+execute 'nnoremap <Leader>dv :e '..g:dotvim..'<cr>'
 nnoremap <Leader>sv :source $MYVIMRC<cr>
 nnoremap <Leader>ev :e $MYVIMRC<cr>
 
