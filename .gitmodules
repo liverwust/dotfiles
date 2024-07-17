@@ -43,3 +43,6 @@
 [submodule "vim-solarized8"]
 	path = vim-solarized8
 	url = https://github.com/lifepillar/vim-solarized8.git
+[submodule "vim-github-link"]
+	path = vim-github-link
+	url = https://github.com/knsh14/vim-github-link.git
