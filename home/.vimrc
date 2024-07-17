@@ -32,8 +32,13 @@ set splitright                 " :vsplit new window on the right, not left
 set cursorline                 " I love solarized light; but I need this !
 set backspace=indent,eol,start " Tell backspace to do its job
 set background=light           " Pathological usage of light-mode
-colorscheme solarized
+colorscheme solarized8
 syntax enable
+
+if has ("termguicolors")
+  " Get those 24-bit COLORS
+  set termguicolors
+endif
 
 " https://vi.stackexchange.com/a/3104/25883
 if has("unix")
