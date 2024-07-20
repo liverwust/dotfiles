@@ -16,7 +16,7 @@ execute 'source '.g:dotvim.'/vim-pathogen/autoload/pathogen.vim'
 " Consider restricted submodules, which should be conditionally loaded
 if has("python3") && ((has('nvim') && has('nvim-0.4.0')) || has('patch-8.1.2269'))
   echo "Entering full Vim experience ... "
-  sleep 1
+  sleep 250m
   execute pathogen#infect('bundle/{}', g:dotvim.'/{}', g:dotvim.'/restricted-submodules/vim-ultisnips', g:dotvim.'/restricted-submodules/vim-go')
 else
   execute pathogen#infect('bundle/{}', g:dotvim.'/{}')
