@@ -1,3 +1,7 @@
+" Throughout the file are instances of the string "keep_for_tame_vim"
+" See generate_tame_vim.awk in the root of this repository
+
+" keep_for_tame_vim
 set nocompatible
 
 " Set the location of the dotvim repository
@@ -22,8 +26,11 @@ else
   execute pathogen#infect('bundle/{}', g:dotvim.'/{}')
 endif
 let &runtimepath=g:dotvim.'/vim,'.&runtimepath
+
+" keep_for_tame_vim
 filetype plugin indent on
 
+" keep_for_tame_vim
 set visualbell                 " Use visual bell instead of beeping
 set showcmd                    " Show (partial) command in status line
 set showmatch                  " Show matching brackets
@@ -200,6 +207,7 @@ nnoremap <silent> <leader>bd :call <SID>InteractiveBufDelete()<CR>
 nnoremap <Leader>q :Bdelete<CR>
 
 " Quick access to common hard-tab/soft-tab conventions
+" keep_for_tame_vim
 nnoremap <Leader>t8 :set sw=8<CR>:set sts=8<CR>:set noet<CR>
 nnoremap <Leader>s8 :set sw=8<CR>:set sts=8<CR>:set et<CR>
 nnoremap <Leader>s4 :set sw=4<CR>:set sts=4<CR>:set et<CR>
@@ -207,6 +215,7 @@ nnoremap <Leader>s2 :set sw=2<CR>:set sts=2<CR>:set et<CR>
 
 " CTRL_W o works differently from tmux and results in all windows except
 " for the current one being closed; disable it entirely
+" keep_for_tame_vim
 nnoremap <C-w>o <Nop>
 nnoremap <C-w><C-O> <Nop>
 
@@ -218,5 +227,6 @@ execute 'nnoremap <Leader>ev :e '.g:dotvim.'/home/.vimrc<cr>'
 execute 'nnoremap <Leader>dv :e '.g:dotvim.'<cr>'
 
 " Move to next/previous quickfix list item, e.g. for vimgrep
+" keep_for_tame_vim
 nnoremap <Leader>[ :cp<cr>
 nnoremap <Leader>] :cn<cr>
