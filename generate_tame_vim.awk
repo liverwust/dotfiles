@@ -20,7 +20,7 @@
 
 {
 	if(keep==1) {
-		printf "%s\\r",
+		printf ":%s\\r",
 		       gensub(/^(.*\S)\s[^\"]*\".*$/,
 		              "\\1",
 		              1)

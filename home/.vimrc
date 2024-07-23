@@ -230,3 +230,9 @@ execute 'nnoremap <Leader>dv :e '.g:dotvim.'<cr>'
 " keep_for_tame_vim
 nnoremap <Leader>[ :cp<cr>
 nnoremap <Leader>] :cn<cr>
+
+" Always search using verymagic ("normal" regular expressions)
+" https://stackoverflow.com/a/3760486/5265820
+" keep_for_tame_vim
+nnoremap / /\v
+cnoremap %s/ %s/\v
