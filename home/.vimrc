@@ -39,7 +39,7 @@ set backspace=indent,eol,start " Tell backspace to do its job
 set background=light           " Pathological usage of light-mode
 syntax enable
 
-if has ("termguicolors")
+if has("termguicolors") && $TMUX==""
   " Get those 24-bit COLORS
   set termguicolors
   colorscheme solarized8
@@ -166,6 +166,12 @@ augroup VimGoCustomization
      let g:go_doc_popup_window = 1
   endif
 augroup END
+
+" Jedi completion for Python
+let g:jedi#popup_on_dot=0
+if isdirectory($HOME."/.ansible/collections")
+  let g:jedi#added_sys_path=[$HOME."/.ansible/collections"]
+endif
 
 " https://vi.stackexchange.com/questions/14829/close-multiple-buffers-interactively
 function! <SID>InteractiveBufDelete()

@@ -46,3 +46,6 @@
 [submodule "vim-github-link"]
 	path = vim-github-link
 	url = https://github.com/knsh14/vim-github-link.git
+[submodule "jedi-vim"]
+	path = jedi-vim
+	url = https://github.com/davidhalter/jedi-vim.git
