@@ -22,8 +22,10 @@ if has("python3") && ((has('nvim') && has('nvim-0.4.0')) || has('patch-8.1.2269'
   echo "Entering full Vim experience ... "
   sleep 250m
   execute pathogen#infect('bundle/{}', g:dotvim.'/{}', g:dotvim.'/restricted-submodules/vim-ultisnips', g:dotvim.'/restricted-submodules/vim-go')
-else
-  execute pathogen#infect('bundle/{}', g:dotvim.'/{}')
+elseif ((has('nvim') && has('nvim-0.4.0')) || has('patch-8.1.2269'))
+  echo "Entering non-Python Vim experience ... "
+  sleep 250m
+  execute pathogen#infect('bundle/{}', g:dotvim.'/{}', g:dotvim.'/restricted-submodules/vim-go')
 endif
 let &runtimepath=g:dotvim.'/vim,'.&runtimepath
 
