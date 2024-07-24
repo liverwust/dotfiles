@@ -47,5 +47,5 @@
 	path = vim-github-link
 	url = https://github.com/knsh14/vim-github-link.git
 [submodule "jedi-vim"]
-	path = jedi-vim
+	path = restricted-submodules/jedi-vim
 	url = https://github.com/davidhalter/jedi-vim.git
