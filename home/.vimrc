@@ -15,18 +15,16 @@ else
 endif
 
 filetype off
-let g:UltiSnipsSnippetDirectories=[g:dotvim.'/vim/UltiSnips']
 execute 'source '.g:dotvim.'/vim-pathogen/autoload/pathogen.vim'
 " Consider restricted submodules, which should be conditionally loaded
-if has("python3") && ((has('nvim') && has('nvim-0.4.0')) || has('patch-8.1.2269'))
-  echo "Entering full Vim experience ... "
-  sleep 250m
-  execute pathogen#infect('bundle/{}', g:dotvim.'/{}', g:dotvim.'/restricted-submodules/vim-ultisnips', g:dotvim.'/restricted-submodules/vim-go')
-elseif ((has('nvim') && has('nvim-0.4.0')) || has('patch-8.1.2269'))
-  echo "Entering non-Python Vim experience ... "
-  sleep 250m
-  execute pathogen#infect('bundle/{}', g:dotvim.'/{}', g:dotvim.'/restricted-submodules/vim-go')
+if has("python3")
+  let g:UltiSnipsSnippetDirectories=[g:dotvim.'/vim/UltiSnips']
+  execute pathogen#infect(g:dotvim.'/restricted-submodules/vim-ultisnips')
 endif
+if (has('nvim') && has('nvim-0.4.0')) || has('patch-8.1.2269')
+  execute pathogen#infect(g:dotvim.'/restricted-submodules/vim-go')
+endif
+execute pathogen#infect('bundle/{}', g:dotvim.'/{}')
 let &runtimepath=g:dotvim.'/vim,'.&runtimepath
 
 " keep_for_tame_vim
