@@ -14,18 +14,20 @@ else
   let g:dotvim=$HOME.'/.homesick/repos/dotvim'
 endif
 
-filetype off
-execute 'source '.g:dotvim.'/vim-pathogen/autoload/pathogen.vim'
-" Consider restricted submodules, which should be conditionally loaded
-if has("python3")
-  let g:UltiSnipsSnippetDirectories=[g:dotvim.'/vim/UltiSnips']
-  execute pathogen#infect(g:dotvim.'/restricted-submodules/vim-ultisnips')
+if !has('nvim')
+  filetype off
+  execute 'source '.g:dotvim.'/vim-pathogen/autoload/pathogen.vim'
+  " Consider restricted submodules, which should be conditionally loaded
+  if has("python3")
+    let g:UltiSnipsSnippetDirectories=[g:dotvim.'/vim/UltiSnips']
+    execute pathogen#infect(g:dotvim.'/restricted-submodules/vim-ultisnips')
+  endif
+  if has('patch-8.1.2269')
+    execute pathogen#infect(g:dotvim.'/restricted-submodules/vim-go')
+  endif
+  execute pathogen#infect('bundle/{}', g:dotvim.'/{}')
+  let &runtimepath=g:dotvim.'/vim,'.&runtimepath
 endif
-if (has('nvim') && has('nvim-0.4.0')) || has('patch-8.1.2269')
-  execute pathogen#infect(g:dotvim.'/restricted-submodules/vim-go')
-endif
-execute pathogen#infect('bundle/{}', g:dotvim.'/{}')
-let &runtimepath=g:dotvim.'/vim,'.&runtimepath
 
 " keep_for_tame_vim
 filetype plugin indent on
