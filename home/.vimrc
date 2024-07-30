@@ -14,6 +14,11 @@ else
   let g:dotvim=$HOME.'/.homesick/repos/dotvim'
 endif
 
+" Hacky way to fix the Neovim start menu item PWD
+if has('win32') && getcwd() == 'C:\Program Files\Neovim\bin'
+  execute 'cd '.$HOME
+endif
+
 if !has('nvim')
   filetype off
   execute 'source '.g:dotvim.'/vim-pathogen/autoload/pathogen.vim'
@@ -227,6 +232,10 @@ nnoremap <C-w><C-O> <Nop>
 execute 'nnoremap <Leader>sv :source '.g:dotvim.'/home/.vimrc<cr>'
 execute 'nnoremap <Leader>ev :e '.g:dotvim.'/home/.vimrc<cr>'
 execute 'nnoremap <Leader>dv :e '.g:dotvim.'<cr>'
+if has('nvim')
+  execute 'nnoremap <Leader>ep :e '.g:dotvim.'/home/.config/nvim/lua/plugins.lua<cr>'
+  execute 'nnoremap <Leader>ei :e '.g:dotvim.'/home/.config/nvim/init.lua<cr>'
+end
 
 " Move to next/previous quickfix list item, e.g. for vimgrep
 " keep_for_tame_vim

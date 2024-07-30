@@ -9,10 +9,12 @@ local plugins = {
   "liverwust/ansible-vim",
   "m-pilia/vim-mediawiki",
   "moll/vim-bbye",
+  "neovim/nvim-lspconfig",
   "tpope/vim-fugitive",
   "tpope/vim-vinegar",
   "vim-pandoc/vim-pandoc",
   "vim-pandoc/vim-pandoc-syntax",
+  "williamboman/mason-lspconfig.nvim",
   "williamboman/mason.nvim",
 }
 if vim.fn.has('python3') ~= 0 then
