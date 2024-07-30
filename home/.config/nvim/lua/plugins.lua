@@ -16,6 +16,6 @@ local plugins = {
   "williamboman/mason.nvim",
 }
 if vim.fn.has('python3') ~= 0 then
-  tale.insert(plugins, "SirVer/ultisnips")
+  table.insert(plugins, "SirVer/ultisnips")
 end
 return plugins
