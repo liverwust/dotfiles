@@ -247,3 +247,15 @@ nnoremap <Leader>] :cn<cr>
 " keep_for_tame_vim
 nnoremap / /\v
 cnoremap %s/ %s/\v
+
+" Sample omnifunc that doesn't do anything
+" Using it to test i_CTRL-X_CTRL-O followed by CTRL-O bug (?)
+function! TryMyOmniFunc (findstart, base)
+  if a:findstart == 1 && a:base == ""
+    " Character where the completion starts
+    return 0
+  else
+    " Some sample words
+    return ["hello", "omnifunc", "completion", "world", "!"]
+  endif
+endfunction
