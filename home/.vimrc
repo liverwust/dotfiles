@@ -242,6 +242,10 @@ end
 nnoremap <Leader>[ :cp<cr>
 nnoremap <Leader>] :cn<cr>
 
+" Run the bin/local_build.sh convention script which is used for Content
+" Collections
+nnoremap <Leader>lb :echo system("cd " . FugitiveFind(":(top)") . "; bin/local_build.sh")<cr>
+
 " Always search using verymagic ("normal" regular expressions)
 " https://stackoverflow.com/a/3760486/5265820
 " keep_for_tame_vim
