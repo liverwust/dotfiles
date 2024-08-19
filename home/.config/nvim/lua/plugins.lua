@@ -3,7 +3,6 @@ local plugins = {
   "altercation/vim-colors-solarized",
   "chazmcgarvey/vim-mermaid",
   "dhruvasagar/vim-table-mode",
-  "fatih/vim-go",
   "knsh14/vim-github-link",
   "lifepillar/vim-solarized8",
   "liverwust/ansible-vim",

@@ -31,6 +31,11 @@ if require('mason-registry').is_installed('jedi-language-server') then
   })
 end
 
+-- go install golang.org/x/tools/gopls@latest
+if vim.fn.executable("gopls") == 1 then
+  require'lspconfig'.gopls.setup{}
+end
+
 if vim.fn.has('win32') == 0 then
   vim.cmd('source ~/.vimrc')
 else
