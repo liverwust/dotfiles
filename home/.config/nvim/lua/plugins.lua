@@ -7,6 +7,7 @@ local plugins = {
   "lifepillar/vim-solarized8",
   "liverwust/ansible-vim",
   "m-pilia/vim-mediawiki",
+  "mfussenegger/nvim-lint",
   "moll/vim-bbye",
   "neovim/nvim-lspconfig",
   "tpope/vim-fugitive",

@@ -51,6 +51,7 @@ set splitright                 " :vsplit new window on the right, not left
 set cursorline                 " I love solarized light; but I need this !
 set backspace=indent,eol,start " Tell backspace to do its job
 set background=light           " Pathological usage of light-mode
+set completeopt-=preview       " Not a fan of scratch buffers for omnifunc
 syntax enable
 
 if has("termguicolors") && $TMUX==""

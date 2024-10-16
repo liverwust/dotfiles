@@ -11,9 +11,15 @@ end
 
 -- :MasonInstall jedi-language-server
 if require('mason-registry').is_installed('jedi-language-server') then
-  vim.lsp.set_log_level('debug')
   require'lspconfig'.jedi_language_server.setup{
-    root_dir = require'lspconfig'.util.find_git_ancestor
+    root_dir = require'lspconfig'.util.find_git_ancestor,
+    init_options = {
+      workspace = {
+        extraPaths = {
+          "/u/wk/lwust/.ansible/collections"
+        }
+      }
+    }
   }
 
   -- Don't let python3complete override LSP
@@ -35,6 +41,47 @@ end
 if vim.fn.executable("gopls") == 1 then
   require'lspconfig'.gopls.setup{}
 end
+
+-- :MasonInstall pyright
+if require('mason-registry').is_installed('pyright') then
+  require'lspconfig'.pyright.setup{
+    settings = {
+      python = {
+        analysis = {
+          extraPaths = {
+            "/u/wk/lwust/.ansible/collections"
+          }
+        }
+      }
+    }
+  }
+end
+
+-- :MasonInstall ansible-language-server
+if require('mason-registry').is_installed('ansible-language-server') then
+  require'lspconfig'.ansiblels.setup{}
+end
+
+local linters = {}
+
+-- :MasonInstall pylint
+if require('mason-registry').is_installed('pylint') then
+  linters.python = {'pylint',}
+end
+
+require('lint').linters_by_ft = linters
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  callback = function()
+
+    -- try_lint without arguments runs the linters defined in `linters_by_ft`
+    -- for the current filetype
+    require("lint").try_lint()
+
+    -- You can call `try_lint` with a linter name or a list of names to always
+    -- run specific linters, independent of the `linters_by_ft` configuration
+    --require("lint").try_lint("cspell")
+  end,
+})
 
 if vim.fn.has('win32') == 0 then
   vim.cmd('source ~/.vimrc')
