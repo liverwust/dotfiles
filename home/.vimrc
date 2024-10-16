@@ -141,6 +141,10 @@ function! s:TextParams(hardtab, tabwidth, textwidth)
   let &l:textwidth = a:textwidth
 endfunction
 
+" https://github.com/pearofducks/ansible-vim
+" Fix yaml.ansible detection for ess_ansible_RH8
+au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
+
 augroup Filetypes
   autocmd!
   autocmd FileType text       call <SID>TextParams(1, 8, 72)
