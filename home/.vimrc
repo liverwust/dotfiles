@@ -124,6 +124,11 @@ if has('win32')
   set shell=\"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe\"
 endif
 
+" I'm not just big on mouse reporting
+if has('mouse')
+  set mouse=
+endif
+
 " straight from Vim's map.txt
 function! s:SID()
   return matchstr(expand('<sfile>'), '<SNR>\zs\d\+\ze_SID$')
@@ -184,6 +189,11 @@ augroup VimGoCustomization
   if has('popupwin')
      let g:go_doc_popup_window = 1
   endif
+augroup END
+
+augroup BufInsideGitRepo
+  autocmd!
+  autocmd BufEnter * execute 'nnoremap <buffer> <Leader>eg :e '.FugitiveFind(":(top)")
 augroup END
 
 " Jedi completion for Python
@@ -250,12 +260,6 @@ nnoremap <Leader>] :cn<cr>
 " Run the bin/local_build.sh convention script which is used for Content
 " Collections
 nnoremap <Leader>lb :echo system("cd " . FugitiveFind(":(top)") . "; bin/local_build.sh")<cr>
-
-" Always search using verymagic ("normal" regular expressions)
-" https://stackoverflow.com/a/3760486/5265820
-" keep_for_tame_vim
-nnoremap / /\v
-cnoremap %s/ %s/\v
 
 " Sample omnifunc that doesn't do anything
 " Using it to test i_CTRL-X_CTRL-O followed by CTRL-O bug (?)
