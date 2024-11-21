@@ -34,7 +34,6 @@
     "editor.minimap.enabled": false,
     "editor.acceptSuggestionOnEnter": "off",
     "window.menuBarVisibility": "default",
-    "workbench.activityBar.visible": false,
     "workbench.statusBar.visible": true,
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
@@ -76,5 +75,6 @@
             "exePath": "/net2/lww/powershell/7/pwsh"
         }
     ],
-    "powershell.powerShellDefaultVersion": "PowerShell 7.1.3"
+    "powershell.powerShellDefaultVersion": "PowerShell 7.1.3",
+    "workbench.activityBar.location": "hidden"
 }
