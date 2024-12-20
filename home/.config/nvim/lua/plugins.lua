@@ -18,6 +18,7 @@ local plugins = {
   "tpope/vim-vinegar",
   "vim-pandoc/vim-pandoc",
   "vim-pandoc/vim-pandoc-syntax",
+  "vim-scripts/vim-soy",
   "williamboman/mason-lspconfig.nvim",
   "williamboman/mason.nvim",
 }

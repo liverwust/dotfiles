@@ -231,4 +231,7 @@ fugitive_buf_set_keymap(
   '; bin/CHANGEME.sh")',
   'Execute a script relative'
 )
+
+-- vim-table-mode use Markdown compatible tables
+vim.g.table_mode_corner = '|'
 -- END nvim-specific editor configuration
