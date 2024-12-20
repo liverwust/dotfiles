@@ -99,6 +99,99 @@ end
 -- END source vimrc boilerplate
 
 -- BEGIN nvim-specific editor configuration
+
+-- Hacky way to fix the Neovim start menu item PWD
+if vim.call('has', 'win32') and vim.call('getcwd') == "C:\\Program Files\\Neovim\\bin"
+then
+  vim.api.nvim_set_current_dir(vim.env.HOME)
+end
+
+-- Set up my preferred colorscheme
+if vim.o.termguicolors then
+  vim.cmd('colorscheme solarized8')
+else
+  vim.cmd('colorscheme solarized')
+end
+
+-- Automatically detect some hard-to-detect filetypes
+vim.api.nvim_create_augroup('Filetypes_Detect', { clear = true })
+vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
+  group = 'Filetypes_Detect',
+  pattern = '*/playbooks/*.yml',
+  desc = 'Detect Ansible playbooks based on a filename pattern',
+  callback = function()
+    vim.opt_local.filetype = 'yaml.ansible'
+  end
+})
+
+-- Change basic parameters like tabs vs. spaces, width, etc.
+function text_params(expandtab, tabwidth, textwidth)
+  vim.opt_local.expandtab   = expandtab
+  vim.opt_local.shiftwidth  = tabwidth
+  vim.opt_local.softtabstop = tabwidth
+  vim.opt_local.textwidth   = textwidth
+end
+function auto_text_params(pattern, hardtab, tabwidth, textwidth)
+  vim.api.nvim_create_autocmd('FileType', {
+    group = 'Filetypes',
+    pattern = pattern,
+    desc = 'Set up tabs/spaces/width for filetype ' .. pattern,
+    callback = function()
+      text_params(hardtabl, tabwidth, textwidth)
+    end
+  })
+end
+vim.api.nvim_create_augroup('Filetypes', { clear = true })
+auto_text_params('css',        true,  2, 0 )
+auto_text_params('html',       true,  2, 0 )
+auto_text_params('htmldjango', true,  2, 0 )
+auto_text_params('javascript', true,  2, 0 )
+auto_text_params('json',       true,  2, 0 )
+auto_text_params('lua',        true,  2, 0 )
+auto_text_params('markdown',   true,  2, 72)
+auto_text_params('mermaid',    true,  2, 0 )
+auto_text_params('python',     true,  4, 78)
+auto_text_params('text',       false, 8, 72)
+auto_text_params('vb',         true,  4, 0 )
+auto_text_params('vim',        true,  2, 0 )
+auto_text_params('yaml',       true,  2, 0 )
+
+-- Some not-so-basic params for specific filetypes
+vim.api.nvim_create_augroup('Filetypes_Extra', { clear = true })
+vim.api.nvim_create_autocmd('FileType', {
+  group = 'Filetypes_Extra',
+  pattern = 'yaml',
+  desc = 'Turn off incompatible autoindent for YAML files',
+  callback = function()
+    vim.opt_local.autoindent = false
+  end
+})
+vim.api.nvim_create_augroup('Filetypes_Extra', { clear = true })
+vim.api.nvim_create_autocmd('FileType', {
+  group = 'Filetypes_Extra',
+  pattern = 'json',
+  desc = 'Set up appropriate folding and formatting for JSON files',
+  callback = function()
+    vim.opt_local.formatoptions = 'tcq2l'
+    vim.opt_local.foldmethod    = 'syntax'
+  end
+})
+vim.api.nvim_create_augroup('Filetypes_Extra', { clear = true })
+vim.api.nvim_create_autocmd('FileType', {
+  group = 'Filetypes_Extra',
+  pattern = 'markdown',
+  desc = 'Override the GLOBAL memory limit when editing markdown files',
+  callback = function()
+    -- https://github.com/vim/vim/issues/5880
+    -- E363 seen when opening markdown or using the square left bracket.
+    vim.opt_global.maxmempattern = 100000
+    vim.opt_local.foldmethod    = 'syntax'
+  end
+})
+
+-- Easy access to Neovim config files
+-- Reference the version in g:dotfiles to allow fugitive to work
+-- (vs. looking for ~/.config/nvim/init.lua or others like it)
 vim.api.nvim_set_keymap(
   'n',
   '<Leader>ep',
@@ -112,6 +205,7 @@ vim.api.nvim_set_keymap(
   { noremap = true }
 )
 
+-- Use fugitive to interact with the root/topdir of the working directory
 function fugitive_buf_set_keymap(keys, prefix, suffix, desc)
   vim.api.nvim_create_autocmd('BufEnter', {
     group = 'BufInsideGitRepo',
@@ -128,7 +222,6 @@ function fugitive_buf_set_keymap(keys, prefix, suffix, desc)
     end
   })
 end
-
 vim.api.nvim_create_augroup('BufInsideGitRepo', { clear = true })
 fugitive_buf_set_keymap('gcd', 'cd ', '', 'Change directory')
 fugitive_buf_set_keymap('ge',  'e ',  '', 'Edit a file relative')
