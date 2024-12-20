@@ -1,7 +1,10 @@
+-- BEGIN neovim and mason and lspconfig boilerplate
 require("config.lazy")
 require("mason").setup()
 require("mason-lspconfig").setup()
+-- END neovim and mason and lspconfig boilerplate
 
+-- BEGIN lspconfig setup
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 
 -- :MasonInstall powershell-editor-services
@@ -83,8 +86,27 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   end,
 })
 
+-- END lspconfig setup
+
+-- BEGIN source vimrc boilerplate
 if vim.fn.has('win32') == 0 then
   vim.cmd('source ~/.vimrc')
 else
   vim.cmd('source ~/_vimrc')
 end
+-- END source vimrc boilerplate
+
+-- BEGIN nvim-specific editor configuration
+vim.api.nvim_set_keymap(
+    'n',
+    '<Leader>ep',
+    ':e ' .. vim.g.dotfiles .. '/home/.config/nvim/lua/plugins.lua<cr>',
+    { noremap = true }
+)
+vim.api.nvim_set_keymap(
+    'n',
+    '<Leader>ei',
+    ':e ' .. vim.g.dotfiles .. '/home/.config/nvim/init.lua<cr>',
+    { noremap = true }
+)
+-- END nvim-specific editor configuration

@@ -19,21 +19,6 @@ if has('win32') && getcwd() == 'C:\Program Files\Neovim\bin'
   execute 'cd '.$HOME
 endif
 
-if !has('nvim')
-  filetype off
-  execute 'source '.g:dotfiles.'/vim-pathogen/autoload/pathogen.vim'
-  " Consider restricted submodules, which should be conditionally loaded
-  if has("python3")
-    let g:UltiSnipsSnippetDirectories=[g:dotfiles.'/vim/UltiSnips']
-    execute pathogen#infect(g:dotfiles.'/restricted-submodules/vim-ultisnips')
-  endif
-  if has('patch-8.1.2269')
-    execute pathogen#infect(g:dotfiles.'/restricted-submodules/vim-go')
-  endif
-  execute pathogen#infect('bundle/{}', g:dotfiles.'/{}')
-  let &runtimepath=g:dotfiles.'/vim,'.&runtimepath
-endif
-
 " keep_for_tame_vim
 filetype plugin indent on
 
@@ -193,6 +178,7 @@ augroup END
 
 augroup BufInsideGitRepo
   autocmd!
+  autocmd BufEnter * execute 'nnoremap <buffer> <Leader>cdg :cd '.FugitiveFind(":(top)").'<CR>'
   autocmd BufEnter * execute 'nnoremap <buffer> <Leader>eg :e '.FugitiveFind(":(top)")
 augroup END
 
@@ -247,10 +233,6 @@ nnoremap <C-w><C-O> <Nop>
 execute 'nnoremap <Leader>sv :source '.g:dotfiles.'/home/.vimrc<cr>'
 execute 'nnoremap <Leader>ev :e '.g:dotfiles.'/home/.vimrc<cr>'
 execute 'nnoremap <Leader>dv :e '.g:dotfiles.'<cr>'
-if has('nvim')
-  execute 'nnoremap <Leader>ep :e '.g:dotfiles.'/home/.config/nvim/lua/plugins.lua<cr>'
-  execute 'nnoremap <Leader>ei :e '.g:dotfiles.'/home/.config/nvim/init.lua<cr>'
-end
 
 " Move to next/previous quickfix list item, e.g. for vimgrep
 " keep_for_tame_vim
