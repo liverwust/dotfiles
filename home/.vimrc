@@ -176,12 +176,6 @@ augroup VimGoCustomization
   endif
 augroup END
 
-augroup BufInsideGitRepo
-  autocmd!
-  autocmd BufEnter * execute 'nnoremap <buffer> <Leader>cdg :cd '.FugitiveFind(":(top)").'<CR>'
-  autocmd BufEnter * execute 'nnoremap <buffer> <Leader>eg :e '.FugitiveFind(":(top)")
-augroup END
-
 " Jedi completion for Python
 let g:jedi#popup_on_dot=0
 if isdirectory($HOME."/.ansible/collections")
@@ -238,10 +232,6 @@ execute 'nnoremap <Leader>dv :e '.g:dotfiles.'<cr>'
 " keep_for_tame_vim
 nnoremap <Leader>[ :cp<cr>
 nnoremap <Leader>] :cn<cr>
-
-" Run the bin/local_build.sh convention script which is used for Content
-" Collections
-nnoremap <Leader>lb :echo system("cd " . FugitiveFind(":(top)") . "; bin/local_build.sh")<cr>
 
 " Sample omnifunc that doesn't do anything
 " Using it to test i_CTRL-X_CTRL-O followed by CTRL-O bug (?)

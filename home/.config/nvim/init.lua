@@ -98,15 +98,42 @@ end
 
 -- BEGIN nvim-specific editor configuration
 vim.api.nvim_set_keymap(
-    'n',
-    '<Leader>ep',
-    ':e ' .. vim.g.dotfiles .. '/home/.config/nvim/lua/plugins.lua<cr>',
-    { noremap = true }
+  'n',
+  '<Leader>ep',
+  ':e ' .. vim.g.dotfiles .. '/home/.config/nvim/lua/plugins.lua<cr>',
+  { noremap = true }
 )
 vim.api.nvim_set_keymap(
-    'n',
-    '<Leader>ei',
-    ':e ' .. vim.g.dotfiles .. '/home/.config/nvim/init.lua<cr>',
-    { noremap = true }
+  'n',
+  '<Leader>ei',
+  ':e ' .. vim.g.dotfiles .. '/home/.config/nvim/init.lua<cr>',
+  { noremap = true }
+)
+
+function fugitive_buf_set_keymap(keys, prefix, suffix, desc)
+  vim.api.nvim_create_autocmd('BufEnter', {
+    group = 'BufInsideGitRepo',
+    pattern = '*',
+    desc = desc .. ' to the top of the Git working directory',
+    callback = function()
+      vim.api.nvim_buf_set_keymap(
+        0,
+        'n',
+        '<Leader>' .. keys,
+        ':' .. prefix .. vim.call('FugitiveFind', ':(top)') .. suffix,
+        { noremap = true }
+      )
+    end
+  })
+end
+
+vim.api.nvim_create_augroup('BufInsideGitRepo', { clear = true })
+fugitive_buf_set_keymap('gcd', 'cd ', '', 'Change directory')
+fugitive_buf_set_keymap('ge',  'e ',  '', 'Edit a file relative')
+fugitive_buf_set_keymap(
+  'gx',
+  'echo system("cd ',
+  '; bin/CHANGEME.sh")',
+  'Execute a script relative'
 )
 -- END nvim-specific editor configuration
