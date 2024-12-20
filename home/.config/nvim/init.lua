@@ -1,3 +1,5 @@
+-- https://github.com/liverwust/dotfiles
+
 -- BEGIN neovim and mason and lspconfig boilerplate
 require("config.lazy")
 require("mason").setup()
