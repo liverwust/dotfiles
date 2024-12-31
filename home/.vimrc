@@ -34,7 +34,7 @@ endif
 
 " Get those 24-bit COLORS if possible
 " keep_for_tame_vim
-if has("termguicolors") && $TMUX==""
+if has("termguicolors")
   set termguicolors
 endif
 
