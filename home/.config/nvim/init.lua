@@ -90,6 +90,20 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 
 -- END lspconfig setup
 
+-- BEGIN harpoon setup boilerplate
+-- https://github.com/ThePrimeagen/harpoon/tree/harpoon2
+local harpoon = require("harpoon")
+harpoon:setup()
+vim.keymap.set("n", "<Leader>ha", function() harpoon:list():add() end)
+vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+vim.keymap.set("n", "<C-h>", function() harpoon:list():select(1) end)
+vim.keymap.set("n", "<C-j>", function() harpoon:list():select(2) end)
+vim.keymap.set("n", "<C-k>", function() harpoon:list():select(3) end)
+vim.keymap.set("n", "<C-l>", function() harpoon:list():select(4) end)
+vim.keymap.set("n", "<Leader>hp", function() harpoon:list():prev() end)
+vim.keymap.set("n", "<Leader>hn", function() harpoon:list():next() end)
+-- END harpoon setup boilerplate
+
 -- BEGIN source vimrc boilerplate
 if vim.fn.has('win32') == 0 then
   vim.cmd('source ~/.vimrc')
