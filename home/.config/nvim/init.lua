@@ -131,13 +131,13 @@ function text_params(expandtab, tabwidth, textwidth)
   vim.opt_local.softtabstop = tabwidth
   vim.opt_local.textwidth   = textwidth
 end
-function auto_text_params(pattern, hardtab, tabwidth, textwidth)
+function auto_text_params(pattern, expandtab, tabwidth, textwidth)
   vim.api.nvim_create_autocmd('FileType', {
     group = 'Filetypes',
     pattern = pattern,
     desc = 'Set up tabs/spaces/width for filetype ' .. pattern,
     callback = function()
-      text_params(hardtabl, tabwidth, textwidth)
+      text_params(expandtab, tabwidth, textwidth)
     end
   })
 end
