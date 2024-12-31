@@ -234,4 +234,13 @@ fugitive_buf_set_keymap(
 
 -- vim-table-mode use Markdown compatible tables
 vim.g.table_mode_corner = '|'
+
+-- https://github.com/moll/vim-bbye
+vim.api.nvim_set_keymap(
+  'n',
+  '<Leader>q',
+  ':Bdelete<cr>',
+  { noremap = true }
+)
+
 -- END nvim-specific editor configuration
