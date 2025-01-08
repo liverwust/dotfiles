@@ -70,6 +70,8 @@ end
 local linters = {}
 
 -- :MasonInstall pylint
+-- . ~/.local/share/nvim/mason/packages/pylint/venv/bin/activate
+-- pip install pylint-venv
 if require('mason-registry').is_installed('pylint') then
   linters.python = {'pylint',}
 end
@@ -87,6 +89,11 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
     --require("lint").try_lint("cspell")
   end,
 })
+
+-- :MasonInstall typescript-language-server
+if require('mason-registry').is_installed('typescript-language-server') then
+  require'lspconfig'.ts_ls.setup{}
+end
 
 -- END lspconfig setup
 
