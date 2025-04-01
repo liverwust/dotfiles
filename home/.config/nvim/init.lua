@@ -251,3 +251,20 @@ vim.api.nvim_set_keymap(
 )
 
 -- END nvim-specific editor configuration
+
+-- BEGIN VSCode-Neovim specific configuration
+
+-- Fixup gq when editing Jupyter cells and otherwise
+-- https://github.com/vscode-neovim/vscode-neovim/issues/1627
+if vim.g.vscode then
+  vim.api.nvim_del_keymap(
+    'n',
+    'gq'
+  )
+  vim.api.nvim_del_keymap(
+    'n',
+    'gqq'
+  )
+end
+
+-- END VSCode-Neovim specific configuration
