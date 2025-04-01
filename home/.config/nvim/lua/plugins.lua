@@ -1,10 +1,5 @@
 local plugins = {
   "PProvost/vim-ps1",
-  {
-    "ThePrimeagen/harpoon",
-    branch = "harpoon2",
-    dependencies = { "nvim-lua/plenary.nvim" }
-  },
   "altercation/vim-colors-solarized",
   "chazmcgarvey/vim-mermaid",
   "dhruvasagar/vim-table-mode",
