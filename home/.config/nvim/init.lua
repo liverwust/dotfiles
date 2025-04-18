@@ -67,6 +67,11 @@ if require('mason-registry').is_installed('ansible-language-server') then
   require'lspconfig'.ansiblels.setup{}
 end
 
+-- :MasonInstall zls
+if require('mason-registry').is_installed('zls') then
+  require'lspconfig'.zls.setup{}
+end
+
 local linters = {}
 
 -- :MasonInstall pylint
