@@ -273,3 +273,12 @@ if vim.g.vscode then
 end
 
 -- END VSCode-Neovim specific configuration
+
+-- BEGIN Neovide specific configuration
+
+if vim.g.neovide then
+  -- I mean, it's cool, but a bit distracting...
+  vim.g.neovide_cursor_animation_length = 0
+end
+
+-- END Neovide specific configuration
