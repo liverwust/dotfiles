@@ -74,7 +74,9 @@ endif
 
 " GVim settings
 if has("gui_running")
-  if has('unix')
+  if exists("g:neovide")
+    set guifont=Cascadia\ Code:h13
+  elseif has('unix')
     set guifont=DejaVu\ Sans\ Mono\ 13
   elseif has('win32')
     set guifont=DejaVu_Sans_Mono:h13
@@ -101,6 +103,10 @@ endif
 if has('win32')
   " Ctrl-V to paste
   inoremap <C-V> <C-R>+
+  " plus Shift-Ctrl-V for Neovide
+  if exists("g:neovide")
+    inoremap <S-C-V> <C-R>+
+  endif
   " PowerShell to run external commands
   set shell=\"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe\"
 endif
