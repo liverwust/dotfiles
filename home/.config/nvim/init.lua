@@ -244,6 +244,15 @@ fugitive_buf_set_keymap(
   'Execute a script relative'
 )
 
+-- https://www.reddit.com/r/neovim/comments/10hmb6r/inspecting_error_and_warnings_in_details/
+-- Show the actual error text for a linter failure in a popup window
+vim.api.nvim_set_keymap(
+  'n',
+  'gl',
+  '<cmd> lua vim.diagnostic.open_float()<CR>',
+  { noremap = true }
+)
+
 -- vim-table-mode use Markdown compatible tables
 vim.g.table_mode_corner = '|'
 
