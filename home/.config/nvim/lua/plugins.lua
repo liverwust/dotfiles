@@ -5,6 +5,7 @@ local plugins = {
   "dhruvasagar/vim-table-mode",
   "knsh14/vim-github-link",
   { "lifepillar/vim-solarized8", branch = "neovim" },
+  "lilyinstarlight/vim-spl",
   "liverwust/ansible-vim",
   "m-pilia/vim-mediawiki",
   "mfussenegger/nvim-lint",
