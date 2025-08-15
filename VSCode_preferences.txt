@@ -12,6 +12,4 @@ jakeboone02.mediawiki
 azemoh.one-monokai
 ryu1kn.partial-diff
 ms-python.python
-RPM spec (LaurentTreguier)
 coolbear.systemd-unit-file
-Vim (vscodevim)
