@@ -33,7 +33,7 @@
     },
     "editor.minimap.enabled": false,
     "editor.acceptSuggestionOnEnter": "off",
-    "window.menuBarVisibility": "default",
+    "window.menuBarVisibility": "toggle",
     "workbench.statusBar.visible": true,
     "telemetry.telemetryLevel": "crash",
     "editor.autoClosingQuotes": "never",
@@ -99,5 +99,9 @@
     "chat.useFileStorage": false,
     "inlineChat.accessibleDiffView": "off",
     "inlineChat.holdToSpeech": false,
-    "inlineChat.lineNaturalLanguageHint": false
+    "inlineChat.lineNaturalLanguageHint": false,
+    "vscode-neovim.neovimExecutablePaths.win32": "C:\\Program Files\\Neovim\\bin\\nvim.exe",
+    "remote.SSH.remotePlatform": {
+        "*.nasa.gov": "linux"
+    }
 }
