@@ -1,6 +1,6 @@
 {
     "workbench.colorTheme": "One Monokai",
-    "files.autoSave": "onWindowChange",
+    "files.autoSave": "afterDelay",
     "editor.dragAndDrop": false,
     "editor.emptySelectionClipboard": false,
     "workbench.startupEditor": "newUntitledFile",
@@ -34,6 +34,7 @@
     "editor.minimap.enabled": false,
     "editor.acceptSuggestionOnEnter": "off",
     "window.menuBarVisibility": "default",
+    "workbench.activityBar.visible": false,
     "workbench.statusBar.visible": true,
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
@@ -67,6 +68,7 @@
         "yml"
     ],
     "editor.autoClosingQuotes": "never",
+    "editor.autoClosingBrackets": "never",
     "trailing-spaces.backgroundColor": "rgba(255,255,0,0.3)",
     "extensions.ignoreRecommendations": true,
     "powershell.powerShellAdditionalExePaths": [
@@ -76,5 +78,31 @@
         }
     ],
     "powershell.powerShellDefaultVersion": "PowerShell 7.1.3",
-    "workbench.activityBar.location": "hidden"
+    "workbench.activityBar.location": "hidden",
+    "git.autofetch": true,
+    "git.rebaseWhenSync": true,
+    "window.restoreWindows": "none",
+    "workbench.editor.enablePreview": false,
+    "explorer.autoReveal": false,
+    "workbench.preferredLightColorTheme": "Solarized Light",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "notebook.editorOptionsCustomizations": {
+        "editor.tabSize": 4,
+        "editor.indentSize": 4,
+        "editor.insertSpaces": true
+    },
+    "jupyter.widgetScriptSources": [
+        "jsdelivr.com",
+        "unpkg.com"
+    ],
+    "files.trimTrailingWhitespace": true,
+    "terminal.integrated.scrollback": 10000,
+    "terminal.integrated.macOptionIsMeta": true,
+    "editor.wordWrap": "on",
+    "window.zoomLevel": 1
+    "remote.SSH.enableAgentForwarding": false,
+    "remote.SSH.enableX11Forwarding": false,
+    "remote.SSH.useLocalServer": false
 }
