@@ -1,5 +1,4 @@
 {
-    "workbench.colorTheme": "Solarized Light",
     "files.autoSave": "afterDelay",
     "editor.dragAndDrop": false,
     "editor.emptySelectionClipboard": false,
@@ -102,6 +101,9 @@
     "inlineChat.lineNaturalLanguageHint": false,
     "vscode-neovim.neovimExecutablePaths.win32": "C:\\Program Files\\Neovim\\bin\\nvim.exe",
     "remote.SSH.remotePlatform": {
-        "*.nasa.gov": "linux"
-    }
+        "*.nasa.gov": "linux",
+        "vansible.nas.nasa.gov": "linux"
+    },
+    "workbench.preferredDarkColorTheme": "One Monokai",
+    "workbench.colorTheme": "Solarized Light"
 }
