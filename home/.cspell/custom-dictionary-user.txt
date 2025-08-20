@@ -1,1 +1,7 @@
 # Custom Dictionary Words
+crio
+cryptsetup
+crypttab
+dreamhost
+luks
+LUKS
