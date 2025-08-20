@@ -105,5 +105,13 @@
         "vansible.nas.nasa.gov": "linux"
     },
     "workbench.preferredDarkColorTheme": "One Monokai",
-    "workbench.colorTheme": "Solarized Light"
+    "workbench.colorTheme": "Solarized Light",
+    "cSpell.customDictionaries": {
+        "custom-dictionary-user": {
+            "name": "custom-dictionary-user",
+            "path": "~/.cspell/custom-dictionary-user.txt",
+            "addWords": true,
+            "scope": "user"
+        }
+    }
 }
