@@ -1,7 +1,19 @@
-# Custom Dictionary Words
 crio
 cryptsetup
 crypttab
+dreamcompute
 dreamhost
+"homeinfra"
+hostvars
+icmpv
+keyrings
+lightspeed
 luks
 LUKS
+netfilter
+noauto
+qnap
+resizefs
+virtio
+warpspeed
+wust
