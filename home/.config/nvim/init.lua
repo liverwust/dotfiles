@@ -264,6 +264,22 @@ vim.api.nvim_set_keymap(
   { noremap = true }
 )
 
+-- https://github.com/arouene/vim-ansible-vault
+vim.api.nvim_set_keymap(
+  'n',
+  '<Leader>av',
+  ':AnsibleVault<cr>',
+  { noremap = true }
+)
+
+-- https://github.com/arouene/vim-ansible-vault
+vim.api.nvim_set_keymap(
+  'n',
+  '<Leader>au',
+  ':AnsibleUnvault<cr>',
+  { noremap = true }
+)
+
 -- END nvim-specific editor configuration
 
 -- BEGIN VSCode-Neovim specific configuration
