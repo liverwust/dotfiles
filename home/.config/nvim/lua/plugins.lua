@@ -1,10 +1,10 @@
 local plugins = {
   "PProvost/vim-ps1",
   "altercation/vim-colors-solarized",
+  "arouene/vim-ansible-vault",
   "chazmcgarvey/vim-mermaid",
   "dhruvasagar/vim-table-mode",
   "knsh14/vim-github-link",
-  { "lifepillar/vim-solarized8", branch = "neovim" },
   "lilyinstarlight/vim-spl",
   "liverwust/ansible-vim",
   "m-pilia/vim-mediawiki",
@@ -22,6 +22,7 @@ local plugins = {
   "vim-scripts/vim-soy",
   "williamboman/mason-lspconfig.nvim",
   "williamboman/mason.nvim",
+  { "lifepillar/vim-solarized8", branch = "neovim" },
 }
 if vim.fn.has('python3') ~= 0 then
   table.insert(plugins, "SirVer/ultisnips")
