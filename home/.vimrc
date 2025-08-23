@@ -35,7 +35,7 @@ set background=light           " Pathological usage of light-mode
 set completeopt-=preview       " Not a fan of scratch buffers for omnifunc
 syntax enable
 
-if has("termguicolors") && $TMUX==""
+if has("termguicolors") " && $TMUX==""
   " Get those 24-bit COLORS
   set termguicolors
   colorscheme solarized8
