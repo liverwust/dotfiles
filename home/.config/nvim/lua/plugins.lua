@@ -17,6 +17,13 @@ local plugins = {
   "michaeljsmith/vim-indent-object",
   "moll/vim-bbye",
   "neovim/nvim-lspconfig",
+  {
+    "nvim-telescope/telescope.nvim",
+    branch = "0.1.x",
+    dependencies = {
+      'nvim-lua/plenary.nvim'
+    }
+  },
   "tpope/vim-commentary",
   "tpope/vim-fugitive",
   "tpope/vim-repeat",
@@ -27,7 +34,10 @@ local plugins = {
   "vim-scripts/vim-soy",
   "williamboman/mason-lspconfig.nvim",
   "williamboman/mason.nvim",
-  { "lifepillar/vim-solarized8", branch = "neovim" },
+  {
+    "lifepillar/vim-solarized8",
+    branch = "neovim"
+  },
 }
 if vim.fn.has('python3') ~= 0 then
   table.insert(plugins, "SirVer/ultisnips")
