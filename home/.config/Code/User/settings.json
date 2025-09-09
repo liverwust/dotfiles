@@ -106,7 +106,7 @@
         "linux269.nas.nasa.gov": "linux"
     },
     "workbench.preferredDarkColorTheme": "One Monokai",
-    "workbench.colorTheme": "Solarized Light",
+    "workbench.colorTheme": "One Monokai",
     "cSpell.customDictionaries": {
         "custom-dictionary-user": {
             "name": "custom-dictionary-user",
@@ -125,5 +125,6 @@
         ".vscode-insiders",
         "requirements.txt"
     ],
-    "git.inputValidation": true
+    "git.inputValidation": true,
+    "python.analysis.typeCheckingMode": "standard"
 }

@@ -2,11 +2,16 @@
 LUKS
 Outputter
 Pree
+Yamale
+auid
 crio
 cryptsetup
 crypttab
+cust
+datacells
 dreamcompute
 dreamhost
+hostvar
 hostvars
 icmpv
 keyrings
@@ -16,6 +21,8 @@ netfilter
 noauto
 qnap
 resizefs
+subelements
 virtio
 warpspeed
 wust
+xfsrestore
