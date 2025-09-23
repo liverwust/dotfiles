@@ -11,13 +11,13 @@ require("mason-lspconfig").setup()
 
 -- :MasonInstall powershell-editor-services
 if require('mason-registry').is_installed('powershell-editor-services') then
-  require'lspconfig'.powershell_es.setup{}
+  vim.lsp.enable('powershell_es')
 end
 
 -- :MasonInstall jedi-language-server
 if require('mason-registry').is_installed('jedi-language-server') then
-  require'lspconfig'.jedi_language_server.setup{
-    root_dir = require'lspconfig'.util.find_git_ancestor,
+  vim.lsp.config('jedi_language_server', {
+    root_dir = vim.fs.root(0, '.git'),
     init_options = {
       workspace = {
         extraPaths = {
@@ -25,7 +25,8 @@ if require('mason-registry').is_installed('jedi-language-server') then
         }
       }
     }
-  }
+  })
+  vim.lsp.enable('jedi_language_server')
 
   -- Don't let python3complete override LSP
   vim.api.nvim_create_autocmd("LspAttach", {
@@ -44,12 +45,12 @@ end
 
 -- go install golang.org/x/tools/gopls@latest
 if vim.fn.executable("gopls") == 1 then
-  require'lspconfig'.gopls.setup{}
+  vim.lsp.enable('gopls')
 end
 
 -- :MasonInstall pyright
 if require('mason-registry').is_installed('pyright') then
-  require'lspconfig'.pyright.setup{
+  vim.lsp.config('pyright', {
     settings = {
       python = {
         analysis = {
@@ -59,17 +60,18 @@ if require('mason-registry').is_installed('pyright') then
         }
       }
     }
-  }
+  })
+  vim.lsp.enable('pyright')
 end
 
 -- :MasonInstall ansible-language-server
 if require('mason-registry').is_installed('ansible-language-server') then
-  require'lspconfig'.ansiblels.setup{}
+  vim.lsp.enable('ansiblels')
 end
 
 -- :MasonInstall zls
 if require('mason-registry').is_installed('zls') then
-  require'lspconfig'.zls.setup{}
+  vim.lsp.enable('zls')
 end
 
 local linters = {}
@@ -97,7 +99,7 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 
 -- :MasonInstall typescript-language-server
 if require('mason-registry').is_installed('typescript-language-server') then
-  require'lspconfig'.ts_ls.setup{}
+  vim.lsp.enable('ts_ls')
 end
 
 -- END lspconfig setup
