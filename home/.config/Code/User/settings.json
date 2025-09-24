@@ -126,5 +126,6 @@
         "requirements.txt"
     ],
     "git.inputValidation": true,
-    "python.analysis.typeCheckingMode": "standard"
+    "python.analysis.typeCheckingMode": "standard",
+    "ansible.lightspeed.enabled": false
 }
