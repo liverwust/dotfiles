@@ -66,7 +66,19 @@ end
 
 -- :MasonInstall ansible-language-server
 if require('mason-registry').is_installed('ansible-language-server') then
-  vim.lsp.enable('ansiblels')
+--  vim.lsp.config('ansiblels', {
+--    settings = {
+--      ansible = {
+--        validation = {
+--          enabled = true,
+--          lint = {
+--            enabled = true
+--          }
+--	}
+--      }
+--    }
+--  })
+--  vim.lsp.enable('ansiblels')
 end
 
 -- :MasonInstall zls
