@@ -114,6 +114,11 @@ if require('mason-registry').is_installed('typescript-language-server') then
   vim.lsp.enable('ts_ls')
 end
 
+-- :MasonInstall rust-analyzer
+if require('mason-registry').is_installed('rust-analyzer') then
+  vim.lsp.enable('rust_analyzer')
+end
+
 -- END lspconfig setup
 
 -- BEGIN telescope setup boilerplate
@@ -189,6 +194,22 @@ end
 if vim.call('has', 'win32') and vim.call('getcwd') == "C:\\Program Files\\Neovim\\bin"
 then
   vim.api.nvim_set_current_dir(vim.env.HOME)
+end
+
+-- Windows-specific integration with PowerShell
+-- https://neo.vimhelp.org/options.txt.html#shell-powershell
+-- :help shell-powershell
+if vim.call('has', 'win32') then
+  if vim.fn['executable']('pwsh') then
+    vim.o.shell = 'pwsh'
+  else
+    vim.o.shell = 'powershell'
+  end
+  vim.o.shellcmdflag = "-NoLogo -NonInteractive -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new();$PSDefaultParameterValues['Out-File:Encoding']='utf8';$PSStyle.OutputRendering='plaintext';Remove-Alias -Force -ErrorAction SilentlyContinue tee;"
+  vim.o.shellredir   = '2>&1 | %%{ "$_" } | Out-File %s; exit $LastExitCode'
+  vim.o.shellpipe    = '2>&1 | %%{ "$_" } | tee %s; exit $LastExitCode'
+  vim.o.shellquote   = ""
+  vim.o.shellxquote  = ""
 end
 
 -- Set up my preferred colorscheme
