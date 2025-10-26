@@ -87,7 +87,6 @@
     "chat.edits2.enabled": false,
     "chat.emptyChatState.enabled": false,
     "chat.extensionTools.enabled": false,
-    "chat.mcp.enabled": false,
     "chat.notifyWindowOnConfirmation": false,
     "chat.promptFiles": false,
     "chat.sendElementsToChat.attachCSS": false,
@@ -127,5 +126,6 @@
     ],
     "git.inputValidation": true,
     "python.analysis.typeCheckingMode": "standard",
-    "ansible.lightspeed.enabled": false
+    "ansible.lightspeed.enabled": false,
+    "chat.mcp.access": "none"
 }
