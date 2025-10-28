@@ -90,7 +90,7 @@ local linters = {}
 
 -- :MasonInstall pylint
 -- . ~/.local/share/nvim/mason/packages/pylint/venv/bin/activate
--- pip install pylint-venv
+-- pip install pylint-venv pylint-pydantic
 if require('mason-registry').is_installed('pylint') then
   linters.python = {'pylint',}
 end
@@ -148,6 +148,7 @@ vim.keymap.set('n', '<leader>fg', function()
 )
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+vim.keymap.set('n', '<leader>fo', builtin.oldfiles, { desc = 'Telescope oldfiles' })
 -- END telescope setup boilerplate
 
 -- BEGIN harpoon setup boilerplate
