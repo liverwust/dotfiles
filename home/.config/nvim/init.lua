@@ -130,6 +130,43 @@ if require('mason-registry').is_installed('rust-analyzer') then
   vim.lsp.enable('rust_analyzer')
 end
 
+-- :MasonInstall yaml-language-server
+vim.lsp.config('yamlls', {
+  cmd = {
+    "yaml-language-server",
+    "--stdio"
+  },
+  filetypes = {
+    "yaml",
+    "yaml.docker-compose",
+    "yaml.gitlab",
+    "yaml.helm-values"
+  },
+  -- https://github.com/neovim/nvim-lspconfig/blob/master/lsp/yamlls.lua#L63
+  on_init = function(client)
+    client.server_capabilities.documentFormattingProvider = true
+  end,
+  root_markers = {
+    ".git"
+  },
+  settings = {
+    redhat = {
+      telemetry = {
+        enabled = true
+      }
+    },
+    yaml = {
+      format = {
+        enable = true
+      },
+      schemas = {
+        --["/path/from/root/of/project"] = "/.github/workflows/*",
+      },
+    },
+  }
+})
+vim.lsp.enable('yamlls')
+
 -- END lspconfig setup
 
 -- BEGIN telescope setup boilerplate
