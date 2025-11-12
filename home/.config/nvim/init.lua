@@ -1,5 +1,16 @@
 -- https://github.com/liverwust/dotfiles
 
+-- https://github.com/libuv/libuv/issues/3888
+-- https://stackoverflow.com/a/50118548/5265820
+-- Set the NoDefaultCurrentDirectoryInExePath env variable to prevent
+-- vim.system and uv.spawn from ever referencing the current working directory
+-- (UNLESS it is added in PATH, of course). This was originally needed at work
+-- for avoiding a fake Python.exe but it's a security hole even without that
+-- specific use-case in mind!
+if vim.fn.has('win32') then
+  vim.env.NoDefaultCurrentDirectoryInExePath = "0"
+end
+
 -- BEGIN neovim and mason and lspconfig boilerplate
 require("config.lazy")
 require("mason").setup()
