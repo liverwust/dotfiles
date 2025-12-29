@@ -141,7 +141,8 @@ vim.keymap.set('n', '<leader>fg', function()
     cwd = '/u/wk/lwust/Repositories',
     search_dirs = {
       "certificate-vault",
-      "ess_ansible_RH8",
+      "hammer",
+      "ess_ansible",
       "nas_ess.applications",
       "nas_ess.business",
       "nas_ess.database",
@@ -151,7 +152,7 @@ vim.keymap.set('n', '<leader>fg', function()
       "nas_ess.monitoring",
       "nas_ess.system",
       "nas_ess.user_config",
-      "nas_ess.web"
+      "nas_ess.web",
     }
   })
   end,
