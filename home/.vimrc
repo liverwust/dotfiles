@@ -231,3 +231,6 @@ execute 'nnoremap <Leader>dv :e '.g:dotfiles.'<cr>'
 " Move to next/previous quickfix list item, e.g. for vimgrep
 nnoremap <Leader>[ :cp<cr>
 nnoremap <Leader>] :cn<cr>
+" And to the next/previous buffers, e.g. for vim *.yml
+nnoremap <Leader>{ :bp<cr>
+nnoremap <Leader>} :bn<cr>
