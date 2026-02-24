@@ -11,6 +11,8 @@ if vim.fn.has('win32') then
   vim.env.NoDefaultCurrentDirectoryInExePath = "0"
 end
 
+require("config.perhost")
+
 -- BEGIN neovim and mason and lspconfig boilerplate
 require("config.lazy")
 require("mason").setup()
@@ -133,6 +135,11 @@ end
 -- :MasonInstall kotlin-lsp
 if require('mason-registry').is_installed('kotlin-lsp') then
   vim.lsp.enable('kotlin_lsp')
+end
+
+-- Manual installation via https://github.com/eclipse-jdtls/eclipse.jdt.ls#installation
+if lww_perhost_has_jdtls then
+  vim.lsp.enable("jdtls")
 end
 
 -- END lspconfig setup

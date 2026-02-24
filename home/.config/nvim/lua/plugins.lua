@@ -108,7 +108,7 @@ local plugins = {
 if vim.fn.has('python3') ~= 0 then
   table.insert(plugins, "SirVer/ultisnips")
 end
-if vim.uv.os_gethostname() == 'bramball' then
+if lww_perhost_has_jdtls then
   table.insert(plugins, "mfussenegger/nvim-jdtls")
 end
 return plugins
