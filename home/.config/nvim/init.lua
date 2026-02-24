@@ -130,6 +130,11 @@ if require('mason-registry').is_installed('rust-analyzer') then
   vim.lsp.enable('rust_analyzer')
 end
 
+-- :MasonInstall kotlin-lsp
+if require('mason-registry').is_installed('kotlin-lsp') then
+  vim.lsp.enable('kotlin_lsp')
+end
+
 -- END lspconfig setup
 
 -- BEGIN telescope setup boilerplate
