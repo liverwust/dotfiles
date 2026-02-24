@@ -141,28 +141,38 @@ end
 -- https://github.com/nvim-telescope/telescope.nvim?tab=readme-ov-file
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.git_files, { desc = 'Telescope find (git) files' })
-vim.keymap.set('n', '<leader>fg', function()
-  builtin.live_grep({
-    cwd = '/u/wk/lwust/Repositories',
-    search_dirs = {
-      "certificate-vault",
-      "hammer",
-      "ess_ansible",
-      "nas_ess.applications",
-      "nas_ess.business",
-      "nas_ess.database",
-      "nas_ess.fips",
-      "nas_ess.infra",
-      "nas_ess.mail",
-      "nas_ess.monitoring",
-      "nas_ess.system",
-      "nas_ess.user_config",
-      "nas_ess.web",
-    }
-  })
-  end,
-  { desc = 'Telescope live grep' }
-)
+if vim.uv.fs_stat('/u/wk/lwust/Repositories/ess_ansible') then
+  vim.keymap.set('n', '<leader>fg', function()
+    builtin.live_grep({
+      cwd = '/u/wk/lwust/Repositories',
+      search_dirs = {
+        "certificate-vault",
+        "hammer",
+        "ess_ansible",
+        "nas_ess.applications",
+        "nas_ess.business",
+        "nas_ess.database",
+        "nas_ess.fips",
+        "nas_ess.infra",
+        "nas_ess.mail",
+        "nas_ess.monitoring",
+        "nas_ess.system",
+        "nas_ess.user_config",
+        "nas_ess.web",
+      }
+    })
+    end,
+    { desc = 'Telescope live grep' }
+  )
+else
+  vim.keymap.set('n', '<leader>fg', function()
+    builtin.live_grep({
+      cwd = vim.fs.root(0, '.git')
+    })
+    end,
+    { desc = 'Telescope live grep' }
+  )
+end
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 vim.keymap.set('n', '<leader>fo', builtin.oldfiles, { desc = 'Telescope oldfiles' })
