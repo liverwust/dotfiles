@@ -102,7 +102,9 @@ end
 local linters = {}
 
 -- :MasonInstall pylint
+-- :echo stdpath('data')
 -- . ~/.local/share/nvim/mason/packages/pylint/venv/bin/activate
+-- . $HOME\AppData\Local\nvim-data\mason\packages\pylint\venv\Scripts\Activate.ps1
 -- pip install pylint-venv pylint-pydantic
 if require('mason-registry').is_installed('pylint') then
   linters.python = {'pylint',}
