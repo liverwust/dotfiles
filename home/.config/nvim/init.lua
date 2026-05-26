@@ -108,6 +108,8 @@ local linters = {}
 -- pip install pylint-venv pylint-pydantic
 if require('mason-registry').is_installed('pylint') then
   linters.python = {'pylint',}
+  require('lint').linters.pylint.cmd = 'pylint'
+  require('lint').linters.pylint.args = {'--rcfile', vim.fn.expand('$HOME/.pylintrc')}
 end
 
 require('lint').linters_by_ft = linters
