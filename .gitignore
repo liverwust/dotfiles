@@ -24,3 +24,4 @@ tags
 
 # Perhost files to leave out
 /home/.task/perhost.conf
+/home/.task
