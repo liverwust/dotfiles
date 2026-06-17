@@ -1,0 +1,57 @@
+# [Created by task 3.4.2 2/18/2026 07:22:57]
+data.location=/home/taskwarrior/.task
+news.version=3.4.2
+
+# To use the default location of the XDG directories,
+# move this configuration file from ~/.taskrc to ~/.config/task/taskrc and update location config as follows:
+
+#data.location=~/.local/share/task
+#hooks.location=~/.config/task/hooks
+
+# Color theme (uncomment one to use)
+#include light-16.theme
+#include light-256.theme
+#include bubblegum-256.theme
+#include dark-16.theme
+#include dark-256.theme
+#include dark-red-256.theme
+#include dark-green-256.theme
+#include dark-blue-256.theme
+#include dark-violets-256.theme
+#include dark-yellow-green.theme
+#include dark-gray-256.theme
+#include dark-gray-blue-256.theme
+#include solarized-dark-256.theme
+include solarized-light-256.theme
+#include no-color.theme
+
+urgency.user.tag.remedy.coefficient=6
+uda.ticket.type=string
+urgency.user.tag.jira.coefficient=3
+uda.priority.values=H,M,,L
+urgency.uda.priority..coefficient=1.8
+urgency.uda.priority.L.coefficient=0.0
+nag=
+urgency.inherit=1
+urgency.blocked.coefficient=0.0
+urgency.blocking.coefficient=0.5
+uda.persona.type=string
+uda.persona.label=Persona
+uda.persona.values=work,housework,personal
+report.next.columns=id,persona,priority,project,recur,due.relative,description,urgency
+report.next.labels=ID,Persona,P,Project,Recur,Due,Description,Urg
+report.list.columns=id,start.age,entry.age,depends.indicator,persona,priority,project,tags,recur.indicator,scheduled.countdown,due,until.remaining,description.count,urgency
+report.list.labels=ID,Active,Age,D,Persona,P,Project,Tags,R,Sch,Due,Until,Description,Urg
+report.nwork.columns=id,priority,project,recur,due.relative,description,urgency
+report.nwork.context=1
+report.nwork.description=Most urgent work tasks
+report.nwork.filter=persona:work status:pending -WAITING limit:page
+reportnext.sort=urgency-
+report.nwork.labels=ID,P,Project,Recur,Due,Description,Urg
+default.command=nwork
+report.nwork.sort=urgency-
+uda.context.type=string
+uda.context.values=braindead,admin,planning,coding,debugging,meeting,documenting
+uda.ticket.label=Ticket
+uda.context.label=Context
+report.list.sort=id
