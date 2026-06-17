@@ -1,6 +1,7 @@
 # [Created by task 3.4.2 2/18/2026 07:22:57]
 news.version=3.4.2
-include ~/.task/perhost.conf
+data.location=~/.task/taskdb
+include ~/.task/taskrc_perhost/taskrc_perhost
 
 # To use the default location of the XDG directories,
 # move this configuration file from ~/.taskrc to ~/.config/task/taskrc and update location config as follows:
@@ -32,9 +33,9 @@ uda.priority.values=H,M,,L
 urgency.uda.priority..coefficient=1.8
 urgency.uda.priority.L.coefficient=0.0
 nag=
-urgency.inherit=1
-urgency.blocked.coefficient=0.0
-urgency.blocking.coefficient=0.5
+urgency.inherit=0
+urgency.blocked.coefficient=0
+urgency.blocking.coefficient=0
 uda.persona.type=string
 uda.persona.label=Persona
 uda.persona.values=work,housework,personal
@@ -55,3 +56,14 @@ uda.context.values=braindead,admin,planning,coding,debugging,meeting,documenting
 uda.ticket.label=Ticket
 uda.context.label=Context
 report.list.sort=id
+urgency.user.tag.next.coefficient=8.0
+uda.downstream.type=numeric
+urgency.uda.downstream.1.coefficient=0
+urgency.uda.downstream.2.coefficient=1
+urgency.uda.downstream.4.coefficient=2
+urgency.uda.downstream.8.coefficient=3
+urgency.uda.downstream.16.coefficient=4
+urgency.uda.downstream.32.coefficient=5
+urgency.uda.downstream.64.coefficient=6
+urgency.uda.downstream.128.coefficient=7
+urgency.uda.downstream.268.coefficient=8
