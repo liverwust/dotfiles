@@ -23,4 +23,4 @@ tags
 /home/.config/nvim/lazy-lock.json
 
 # Perhost files to leave out
-/home/.task/taskrc_perhost
+/home/.taskrc_perhost
